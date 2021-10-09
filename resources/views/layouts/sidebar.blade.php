@@ -4,9 +4,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <i class="fas fa-laptop-code"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Aplikasi Kasir Laravel<sup>8</sup></div>
     </a>
 
     <!-- Divider -->
@@ -82,9 +82,14 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('logout') }}">
+        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
             <i class="fas fa-fw fa-sign-out-alt"></i>
-            <span>Logout Akun !</span></a>
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </li>
 
     <!-- Divider -->
