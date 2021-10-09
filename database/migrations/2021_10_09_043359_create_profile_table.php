@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransaksiPembelianTable extends Migration
+class CreateProfileTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateTransaksiPembelianTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaksi_pembelian', function (Blueprint $table) {
+        Schema::create('profile', function (Blueprint $table) {
             $table->id();
-            $table->integer('total_harga');
+            $table->integer('umur');
+            $table->text('bio');
+            $table->char('alamat', 150);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateTransaksiPembelianTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksi_pembelian');
+        Schema::dropIfExists('profile');
     }
 }

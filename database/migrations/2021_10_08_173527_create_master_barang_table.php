@@ -15,6 +15,8 @@ class CreateMasterBarangTable extends Migration
     {
         Schema::create('master_barang', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_barang');
+            $table->integer('harga_satuan');
             $table->timestamps();
         });
     }

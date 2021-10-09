@@ -1,6 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MbarangController;
+use App\Http\Controllers\TpembelianController;
+use App\Http\Controllers\TpembelianbarangController;
+use App\Http\Controllers\DashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/user', UserController::class);
+Route::resource('/master-barang', MbarangController::class);
+Route::resource('/transaksi-pembelian', TpembelianController::class);
+Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class);
+Route::resource('/dashboard', DashboardController::class);
 
 Auth::routes();
 

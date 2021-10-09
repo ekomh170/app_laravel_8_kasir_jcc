@@ -15,6 +15,12 @@ class CreateTransaksiPembelianBarangTable extends Migration
     {
         Schema::create('transaksi_pembelian_barang', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('transaksi_pembelian_id');
+            $table->foreign('transaksi_pembelian_id')->references('id')->on('transaksi_pembelian');
+            $table->unsignedBigInteger('master_barang_id');
+            $table->foreign('master_barang_id')->references('id')->on('master_barang');
+            $table->integer('jumlah');
+            $table->integer('harga_satuan');
             $table->timestamps();
         });
     }
