@@ -14,7 +14,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('data_pengguna.index');
+        return view('profile.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('data_pengguna.create');
+        return view('profile.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        return view('data_pengguna.show');
+        return view('profile.show');
     }
 
     /**
@@ -56,7 +56,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        return view('data_pengguna.edit');
+        return view('profile.edit');
     }
 
     /**

@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@section('judul')
+Aplikasi Kasir | Project 2 Laravel JCC
+@endsection
+@section('judul_sub')
+Form Daftar Akun
+@endsection
 @section('content')
 
 <body class="bg-gradient-primary">
@@ -178,4 +184,3 @@
 </div>
 </div> --}}
 @endsection
-

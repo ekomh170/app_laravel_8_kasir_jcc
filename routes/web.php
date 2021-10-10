@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MbarangController;
 use App\Http\Controllers\TpembelianController;
 use App\Http\Controllers\TpembelianbarangController;
@@ -28,6 +29,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/user', UserController::class);
+Route::resource('/profile', ProfileController::class);
 Route::resource('/master-barang', MbarangController::class);
 Route::resource('/transaksi-pembelian', TpembelianController::class);
 Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class);

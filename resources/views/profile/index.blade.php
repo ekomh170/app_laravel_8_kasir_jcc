@@ -3,11 +3,12 @@
 Aplikasi Kasir | Project 2 Laravel JCC
 @endsection
 @section('judul_sub')
-Data Lengkap Barang
+Data Profile
 @endsection
 @section('content')
-<div class="h2 mb-3 text-center">Data Lengkap Barang</div>
+<div class="h2 mb-3 text-center">Data Profile</div>
 <hr style="width:75%">
+
 <div class="card mb-4">
     <div class="card-header">
         Detail Profile yang Sedang Login
