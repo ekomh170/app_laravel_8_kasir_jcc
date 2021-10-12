@@ -43,7 +43,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected $table = 'users';
+    // protected $table = 'users';
     public function profile()
     {
         return $this->hasOne('App\Models\Profile');

@@ -12,39 +12,26 @@ Tambah Data Barang
 @section('content')
 <div class="h2 mb-3 text-center">Tambah Data Barang</div>
 <hr style="width:75%">
-<form action="/film" method="POST" enctype="multipart/form-data">
+<form action="/master-barang" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-        <label for="judul">Judul</label>
-        <input type="text" class="form-control" name="judul" id="judul" placeholder="Masukkan Judul">
-        @error('judul')
+        <label for="nama_barang">Nama Barang</label>
+        <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder="Masukkan Nama Barang">
+        @error('nama_barang')
         <div class="alert alert-danger">
             {{ $message }}
         </div>
         @enderror
     </div>
     <div class="form-group">
-        <label for="ringkasan">Ringkasan</label>
-        <textarea class="form-control" name="ringkasan" id="ringkasan" name="ringkasan" rows="3"
-            placeholder="Masukkan Ringkasan"></textarea>
-        @error('ringkasan')
+        <label for="harga_satuan">Harga Satuan</label>
+        <input type="number" class="form-control" name="harga_satuan" id="harga_satuan"
+            placeholder="Masukkan Harga Satuan">
+        @error('harga_satuan')
         <div class="alert alert-danger">
             {{ $message }}
         </div>
         @enderror
-    </div>
-    <div class="form-group">
-        <label for="tahun">Tahun</label>
-        <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Masukkan Tahun">
-        @error('tahun')
-        <div class="alert alert-danger">
-            {{ $message }}
-        </div>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="poster">Poster Film</label>
-        <input type="file" class="form-control-file" id="poster" name="poster">
     </div>
     <button type="submit" class="btn btn-primary">Tambah</button>
 </form>

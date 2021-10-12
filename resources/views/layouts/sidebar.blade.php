@@ -37,7 +37,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Profile : </h6>
                 <a class="collapse-item" href="{{ url('profile/') }}">Profile</a>
-                <a class="collapse-item" href="{{ url('profile/edit/') }}">Ubah Profile</a>
+                <a class="collapse-item" href="{{ url('profile/show/') }}">Ubah Profile</a>
             </div>
         </div>
     </li>

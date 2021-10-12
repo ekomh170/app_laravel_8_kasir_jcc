@@ -68,7 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         if ($data['password'] == $data['password_repeat']) {
-            $user = User::create([
+            $users = User::create([
                 'name' => $data['name'],
                 'username' => $data['username'],
                 'email' => $data['email'],
@@ -80,9 +80,9 @@ class RegisterController extends Controller
         $profile = Profile::create([
             'umur' => $data['umur'],
             'profile_foto' => "default.svg",
-            'user_id' => $user->id,
+            'user_id' => $users->id,
         ]);
-        return $user;
+        return $users;
         return $profile;
     }
 }

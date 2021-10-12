@@ -33,7 +33,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/user', UserController::class);
-Route::resource('/profile', ProfileController::class);
+Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show']);
 Route::resource('/master-barang', MbarangController::class);
 Route::resource('/transaksi-pembelian', TpembelianController::class);
 Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class);

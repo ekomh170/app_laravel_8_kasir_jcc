@@ -14,12 +14,14 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.index');
+        $profile = profile::where('user_id', \Illuminate\Support\Facades\Auth::user()->id)->first();
+        return view('profile.index', compact('profile'));
     }
 
-    public function edit(Profile $profile)
+    public function show()
     {
-        return view('profile.edit');
+        $profile = profile::where('user_id', \Illuminate\Support\Facades\Auth::user()->id)->first();
+        return view('profile.show', compact('profile'));
     }
 
     /**

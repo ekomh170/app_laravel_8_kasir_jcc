@@ -13,8 +13,9 @@ Data Lengkap Barang
         Detail Profile yang Sedang Login
     </div>
     <div class="card-body">
-        This card uses Bootstrap's default styling with no utility classes added. Global
-        styles are the only things modifying the look and feel of this default card example.
+        <h4 class="card-text"><b>ID Barang</b> : {{ $barang->id }}</h4>
+        <h4 class="card-text"><b>Nama Barang</b> : {{ $barang->nama_barang }}</h4>
+        <h4 class="card-text"><b>Harga Satuan</b> : {{ $barang->harga_satuan }}</h4>
     </div>
 </div>
 @endsection

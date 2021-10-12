@@ -80,7 +80,7 @@ class MbarangController extends Controller
      * @param  \App\Models\Mbarang  $mbarang
      * @return \Illuminate\Http\Response
      */
-    public function update($request, $id)
+    public function update(request $request, $id)
     {
         $request->validate([
             'nama_barang' => 'required',
