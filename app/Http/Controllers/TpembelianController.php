@@ -14,7 +14,8 @@ class TpembelianController extends Controller
      */
     public function index()
     {
-        return view('transaksi_pembelian.index');
+        $tpembelian = Tpembelian::all();
+        return view('transaksi_pembelian.index', compact('tpembelian'));
     }
 
     /**
@@ -44,9 +45,10 @@ class TpembelianController extends Controller
      * @param  \App\Models\Tpembelian  $Tpembelian
      * @return \Illuminate\Http\Response
      */
-    public function show(Tpembelian $Tpembelian)
+    public function show($id)
     {
-        return view('transaksi_pembelian.show');
+        $tpembelian = Tpembelian::find($id);
+        return view('transaksi_pembelian.show', compact('tpembelian'));
     }
 
     /**
@@ -55,9 +57,10 @@ class TpembelianController extends Controller
      * @param  \App\Models\Tpembelian  $Tpembelian
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tpembelian $Tpembelian)
+    public function edit($id)
     {
-        return view('transaksi_pembelian.edit');
+        $tpembelian = Tpembelian::find($id);
+        return view('transaksi_pembelian.edit', compact('tpembelian'));
     }
 
     /**
@@ -78,8 +81,10 @@ class TpembelianController extends Controller
      * @param  \App\Models\Tpembelian  $Tpembelian
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tpembelian $Tpembelian)
+    public function destroy($id)
     {
-        //
+        $tpembelian = Tpembelian::find($id);
+        $tpembelian->delete();
+        return redirect('/transaksi-pembelian');
     }
 }

@@ -14,7 +14,8 @@ class MbarangController extends Controller
      */
     public function index()
     {
-        return view('master_barang.index');
+        $barang = Mbarang::all();
+        return view('master_barang.index', compact('barang'));
     }
 
     /**
@@ -35,7 +36,17 @@ class MbarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga_satuan' => 'required'
+        ]);
+
+        Mbarang::create([
+            "nama_barang" => $request["nama_barang"],
+            "harga_satuan" => $request["harga_satuan"]
+        ]);
+
+        return redirect('/master-barang');
     }
 
     /**
@@ -44,9 +55,10 @@ class MbarangController extends Controller
      * @param  \App\Models\Mbarang  $mbarang
      * @return \Illuminate\Http\Response
      */
-    public function show(Mbarang $mbarang)
+    public function show($id)
     {
-        return view('master_barang.show');
+        $barang = Mbarang::find($id);
+        return view('master_barang.show', compact('barang'));
     }
 
     /**
@@ -55,9 +67,10 @@ class MbarangController extends Controller
      * @param  \App\Models\Mbarang  $mbarang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mbarang $mbarang)
+    public function edit($id)
     {
-        return view('master_barang.edit');
+        $barang = Mbarang::find($id);
+        return view('master_barang.edit', compact('barang'));
     }
 
     /**
@@ -67,9 +80,22 @@ class MbarangController extends Controller
      * @param  \App\Models\Mbarang  $mbarang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mbarang $mbarang)
+    public function update($request, $id)
     {
-        //
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga_satuan' => 'required',
+        ]);
+
+        $barang = Mbarang::find($id);
+
+        $data_barang = [
+            'nama_barang' => $request->nama_barang,
+            'harga_satuan' => $request->harga_satuan,
+        ];
+
+        $barang->update($data_barang);
+        return redirect('/master-barang');
     }
 
     /**
@@ -78,8 +104,10 @@ class MbarangController extends Controller
      * @param  \App\Models\Mbarang  $mbarang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mbarang $mbarang)
+    public function destroy($id)
     {
-        //
+        $barang = Mbarang::find($id);
+        $barang->delete();
+        return redirect('/master-barang');
     }
 }

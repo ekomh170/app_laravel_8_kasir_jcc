@@ -20,6 +20,12 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('/sb_admin_2') }}/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+
+    <link rel="icon" href="{{ asset('img') }}/favicon/laravel.ico">
+
+    @stack('style')
+
 </head>
 
 <body id="page-top">
@@ -92,6 +98,8 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('/sb_admin_2') }}/js/sb-admin-2.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+    @stack('scripts')
 </body>
 
 </html>

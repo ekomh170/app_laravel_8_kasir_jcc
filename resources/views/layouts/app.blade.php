@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="icon" href="{{ asset('img') }}/favicon/laravel.ico">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -34,9 +36,9 @@
     <link href="{{ asset('sb_admin_2') }}/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-gradient-primary">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-gradient-primary shadow-lg">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     @yield('judul')
@@ -49,7 +51,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto bg-dark">
 
                     </ul>
 
@@ -59,12 +61,24 @@
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
+                            {{-- @if ()
+                                                    <a href="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @endif --}}
+                            <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            {{-- @if ()
+                            <a href="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @endif --}}
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @endif
 
                         @if (Route::has('register'))
                         <li class="nav-item">
+                            {{-- @if ()
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif --}}
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif

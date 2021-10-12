@@ -104,7 +104,7 @@
                 aria-haspopup="true" aria-expanded="false">
                 @auth
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}
-                    ({{ Auth::user()->username }})</span>
+                    ({{ Auth::user()->profile->umur }})</span>
                 @endauth
                 @guest
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>

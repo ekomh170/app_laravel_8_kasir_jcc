@@ -7,8 +7,7 @@ Form Daftar Akun
 @endsection
 @section('content')
 
-<body class="bg-gradient-primary">
-
+<div>
     <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
@@ -39,6 +38,15 @@ Form Daftar Akun
                                         value="{{ old('username') }}">
                                 </div>
                                 @error('username')
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
+                                <div class="form-group">
+                                    <input type="number" name="umur" class="form-control form-control-user"
+                                        id="exampleInputumur" placeholder="Masukan Umur" value="{{ old('umur') }}">
+                                </div>
+                                @error('umur')
                                 <div class="alert alert-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </div>
@@ -82,10 +90,10 @@ Form Daftar Akun
 
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Lupa Password?</a>
+                                <a class="small" href="{{ route('password.request') }}">Lupa Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Saya Punya Akun? Login!</a>
+                                <a class="small" href="{{ url('login') }}">Saya Punya Akun? Login!</a>
                             </div>
                         </div>
                     </div>
@@ -94,18 +102,7 @@ Form Daftar Akun
         </div>
 
     </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-</body>
+</div>
 
 </html>
 

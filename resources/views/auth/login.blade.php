@@ -7,7 +7,7 @@ Form Login
 @endsection
 @section('content')
 
-<body class="bg-gradient-primary">
+<div>
     <div class="container">
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -22,7 +22,7 @@ Form Login
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Sign In</h1>
                                     </div>
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
@@ -61,11 +61,11 @@ Form Login
                                     <hr>
                                     @if (Route::has('password.request'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
+                                        <a class="small" href="{{ route('password.request') }}">Lupa Password?</a>
                                     </div>
                                     @endif
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('password.request') }}">Create an Account!</a>
+                                        <a class="small" href="{{ url('register') }}">Daftar Akun!</a>
                                     </div>
                                 </div>
                             </div>
@@ -78,18 +78,7 @@ Form Login
         </div>
 
     </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('sb_admin_2') }}/vendor/jquery/jquery.min.js"></script>
-    <script src="{{ asset('sb_admin_2') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('sb_admin_2') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('sb_admin_2') }}/js/sb-admin-2.min.js"></script>
-
-</body>
+</div>
 
 </html>
 

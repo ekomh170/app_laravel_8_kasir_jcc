@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('data_pengguna.index');
+        $user = User::all();
+        return view('data_pengguna.index', compact('user'));
     }
 
     /**
@@ -45,6 +48,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $user = User::find($id);
         return view('data_pengguna.show');
     }
 
@@ -56,6 +60,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $user = User::find($id);
         return view('data_pengguna.edit');
     }
 
@@ -79,6 +84,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/data-pengguna');
     }
 }

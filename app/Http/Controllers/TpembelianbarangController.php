@@ -14,6 +14,7 @@ class TpembelianbarangController extends Controller
      */
     public function index()
     {
+        $tpembelianb = TpembelianBarang::all();
         return view('transaksi_pembelian_barang.index');
     }
 
@@ -44,9 +45,10 @@ class TpembelianbarangController extends Controller
      * @param  \App\Models\Tpembelianbarang  $tpembelianbarang
      * @return \Illuminate\Http\Response
      */
-    public function show(Tpembelianbarang $tpembelianbarang)
+    public function show($id)
     {
-        return view('transaksi_pembelian_barang.show');
+        $tpembelianb = TpembelianBarang::find($id);
+        return view('transaksi_pembelian_barang.show', compact('tpembelianb'));
     }
 
     /**
@@ -55,9 +57,10 @@ class TpembelianbarangController extends Controller
      * @param  \App\Models\Tpembelianbarang  $tpembelianbarang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tpembelianbarang $tpembelianbarang)
+    public function edit($id)
     {
-        return view('transaksi_pembelian_barang.index');
+        $tpembelianb = TpembelianBarang::find($id);
+        return view('transaksi_pembelian_barang.index', compact('tpembelianb'));
     }
 
     /**
@@ -67,7 +70,7 @@ class TpembelianbarangController extends Controller
      * @param  \App\Models\Tpembelianbarang  $tpembelianbarang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tpembelianbarang $tpembelianbarang)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,11 +78,13 @@ class TpembelianbarangController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tpembelianbarang  $tpembelianbarang
+     * @param  \App\Models\TpembelianBarang  $tpembelianbarang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tpembelianbarang $tpembelianbarang)
+    public function destroy($id)
     {
-        //
+        $tpembelianb = TpembelianBarang::find($id);
+        $tpembelianb->delete();
+        return redirect('/transaksi-pembelian-barang');
     }
 }

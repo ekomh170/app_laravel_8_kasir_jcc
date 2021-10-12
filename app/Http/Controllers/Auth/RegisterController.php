@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:64'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
+            'umur' => ['required'],
         ]);
     }
 
@@ -69,27 +70,18 @@ class RegisterController extends Controller
         if ($data['password'] == $data['password_repeat']) {
             $user = User::create([
                 'name' => $data['name'],
-                'username' => $data['email'],
+                'username' => $data['username'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'role' => "Admin",
             ]);
         }
 
-        $gambar = $data['profile_foto'];
-        $new_gambar = time() . ' - ' . $gambar->getClientOriginalName();
-
         $profile = Profile::create([
-            'jenis_kelamin' => $data['jenis_kelamin'],
-            'tempat_lahir' => $data['tempat_lahir'],
-            'tgl_lahir' => $data['tgl_lahir'],
-            'alamat' => $data['alamat'],
-            'bio' => $data['bio'],
-            'no_telp' => $data['no_telp'],
-            'profile_foto' => $new_gambar,
-            'users_id' => $user->id,
+            'umur' => $data['umur'],
+            'profile_foto' => "default.svg",
+            'user_id' => $user->id,
         ]);
-        $gambar->move('img/profile', $new_gambar);
         return $user;
         return $profile;
     }
