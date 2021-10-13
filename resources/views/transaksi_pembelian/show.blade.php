@@ -13,8 +13,8 @@ Detail Lengkap Transaksi Pembelian
         Detail Profile yang Sedang Login
     </div>
     <div class="card-body">
-        This card uses Bootstrap's default styling with no utility classes added. Global
-        styles are the only things modifying the look and feel of this default card example.
+        <h4 class="card-text"><b>ID Transaksi Pembelian</b> : {{ $tpembelian->id }}</h4>
+        <h4 class="card-text"><b>Total Harga</b> : {{ $tpembelian->total_harga }}</h4>
     </div>
 </div>
 @endsection

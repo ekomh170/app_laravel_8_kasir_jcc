@@ -11,13 +11,16 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
+    @auth
     <!-- Nav Item - Dashboard -->
+    @if (Auth::user()->role === "Admin")
     <li class="nav-item">
         <a class="nav-link" href="{{ url('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+    @endif
+
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -27,6 +30,7 @@
         Interface
     </div>
 
+    @if (Auth::user()->role === "Admin" || Auth::user()->role === "Kasir")
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
@@ -41,22 +45,27 @@
             </div>
         </div>
     </li>
+    @endif
 
+    @if (Auth::user()->role === "Admin")
     <li class="nav-item">
         <a class="nav-link" href="{{ url('user') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Data Pengguna</span></a>
     </li>
+    @endif
+
 
 
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-
+    @if (Auth::user()->role == "Admin" || Auth::user()->role == "Kasir")
     <!-- Heading -->
     <div class="sidebar-heading">
         Addons
     </div>
+
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -81,6 +90,7 @@
             <span>Master Product</span></a>
     </li>
 
+
     <li class="nav-item">
         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
@@ -91,6 +101,8 @@
             @csrf
         </form>
     </li>
+    @endif
+    @endauth
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

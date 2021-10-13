@@ -9,7 +9,7 @@ Aplikasi Kasir | Project 2 Laravel JCC
 Data Transaksi Pembelian Barang
 @endsection
 @section('content')
-<a href="{{ url('master-barang/create') }}"><button type="button" class="btn btn-outline-success"><i
+<a href="{{ url('transaksi-pembelian-barang/create') }}"><button type="button" class="btn btn-outline-success"><i
             class="fas fa-plus-square"></i></button></a>
 <div class="h2 mb-3 text-center">Data Transaksi Pembelian Barang</div>
 
@@ -25,16 +25,24 @@ Data Transaksi Pembelian Barang
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Total Harga</th>
+                        <th>Transaksi Pembelian ID</th>
+                        <th>Master Barang ID</th>
+                        <th>Jumlah</th>
+                        <th>Harga Satuan</th>
+                        <th>Waktu Dibuat</th>
+                        <th>Waktu Diupdate</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>Total Harga</th>
-                        <th>Total Harga</th>
-                        <th>Aksi</th>
+                        <th>Transaksi Pembelian ID</th>
+                        <th>Master Barang ID</th>
+                        <th>Jumlah</th>
+                        <th>Harga Satuan</th>
+                        <th>Waktu Dibuat</th>
+                        <th>Waktu Diupdate</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -45,7 +53,22 @@ Data Transaksi Pembelian Barang
                         <td>{{ $key->master_barang_id }}</td>
                         <td>{{ $key->jumlah }}</td>
                         <td>{{ $key->harga_satuan }}</td>
-                        <td></td>
+                        <td>{{ $key->created_at }}</td>
+                        <td>{{ $key->updated_at }}</td>
+                        <td>
+                            <a href="/transaksi-pembelian-barang/{{$key->id}}" class="btn btn-outline-info"><i
+                                    class="fas fa-eye"></i></a>
+                            @auth
+                            <a href="/transaksi-pembelian-barang/{{$key->id}}/edit" class="btn btn-outline-primary"><i
+                                    class="far fa-edit"></i></a>
+                            <form action="/transaksi-pembelian-barang/{{$key->id}}" method="POST" class="display-non">
+                                @csrf
+                                @method('DELETE')
+                                <button input type="submit" class="btn btn-outline-danger my-1" value="Delete"><i
+                                        class="far fa-trash-alt"></i></button>
+                            </form>
+                            @endauth
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

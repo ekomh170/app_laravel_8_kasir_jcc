@@ -13,8 +13,14 @@ Kesalahan Dalam Pages Halaman
     <div class="text-center">
         <div class="error mx-auto" data-text="404">404</div>
         <p class="lead text-gray-800 mb-5">Page Not Found</p>
-        <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-        <a href="index.html">&larr; Back to Dashboard</a>
+        @auth
+        <p class="text-gray-500 mb-0">Halaman Tidak Ada Kembali Kehalaman Profile Dengan klik link dibawah</p>
+        <a href="{{ url('/profile') }}">&larr; Back to Profile</a>
+        @endauth
+        @guest
+        <p class="text-gray-500 mb-0">Kembali Kehalaman Utama Dengan klik link dibawah dan Lakukan Daftar dan Lalu Login</p>
+        <a href="{{ url('/') }}">&larr; Back to Halaman Utama</a>
+        @endguest
     </div>
 
 </div>

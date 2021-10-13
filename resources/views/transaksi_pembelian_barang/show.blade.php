@@ -10,11 +10,14 @@ Detail Lengkap Data Transaksi Pembelian Barang
 <hr style="width:75%">
 <div class="card mb-4">
     <div class="card-header">
-        Detail Profile yang Sedang Login
+        Detail Lengkap Data Transaksi Pembelian Barang
     </div>
     <div class="card-body">
-        This card uses Bootstrap's default styling with no utility classes added. Global
-        styles are the only things modifying the look and feel of this default card example.
+        <h4 class="card-text"><b>ID Barang</b> : {{ $tpembelianb->id }}</h4>
+        <h4 class="card-text"><b>transaksi_pembelian_id</b> : {{ $tpembelianb->transaksi_pembelian_id }}</h4>
+        <h4 class="card-text"><b>master_barang_id</b> : {{ $tpembelianb->master_barang_id }}</h4>
+        <h4 class="card-text"><b>jumlah</b> : {{ $tpembelianb->jumlah }}</h4>
+        <h4 class="card-text"><b>Harga Satuan</b> : {{ $tpembelianb->harga_satuan }}</h4>
     </div>
 </div>
 @endsection

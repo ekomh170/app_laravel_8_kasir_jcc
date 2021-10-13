@@ -41,7 +41,21 @@ Data Transaksi Pembelian
                     <tr>
                         <td>{{ $item + 1 }}</td>
                         <td>{{ $key->total_harga }}</td>
-                        <td></td>
+                        <td>
+                            <a href="/transaksi-pembelian/{{$key->id}}" class="btn btn-outline-info"><i
+                                    class="fas fa-eye"></i></a>
+                            @auth
+                            <a href="/transaksi-pembelian/{{$key->id}}/edit" class="btn btn-outline-primary"><i
+                                    class="far fa-edit"></i></a>
+                            <form action="/transaksi-pembelian/{{$key->id}}" method="POST" class="display-non">
+                                @csrf
+                                @method('DELETE')
+                                <button input type="submit" class="btn btn-outline-danger my-1" value="Delete"><i
+                                        class="far fa-trash-alt"></i></button>
+                            </form>
+                            @endauth
+                        </td>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

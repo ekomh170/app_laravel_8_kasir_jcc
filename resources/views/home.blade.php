@@ -17,7 +17,7 @@
 
                     {{ __('You are logged in!') }}
                     <br>
-                    <a href="{{ url('/dashboard') }}" class="mt-3 btn btn-danger">Dashboard</a>
+                    <a href="{{ url('/profile') }}" class="mt-3 btn btn-danger">Halaman Utama</a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ Aplikasi Kasir | Project 2 Laravel JCC
 Data Pengguna Aplikasi Kasir
 @endsection
 @section('content')
-<a href="{{ url('master-barang/create') }}"><button type="button" class="btn btn-outline-success"><i
+<a href="{{ url('user/create') }}"><button type="button" class="btn btn-outline-success"><i
             class="fas fa-plus-square"></i></button></a>
 <div class="h2 mb-3 text-center">Data Pengguna Aplikasi Kasir</div>
 <hr style="width:75%">
@@ -56,12 +56,11 @@ Data Pengguna Aplikasi Kasir
                         <td>{{ $key->created_at }}</td>
                         <td>{{ $key->updated_at }}</td>
                         <td class="text-center">
-                            <a href="/master-barang/{{$key->id}}" class="btn btn-outline-info"><i
-                                    class="fas fa-eye"></i></a>
+                            <a href="/user/{{$key->id}}" class="btn btn-outline-info"><i class="fas fa-eye"></i></a>
                             @auth
-                            <a href="/master-barang/{{$key->id}}/edit" class="btn btn-outline-primary"><i
+                            <a href="/user/{{$key->id}}/edit" class="btn btn-outline-primary"><i
                                     class="far fa-edit"></i></a>
-                            <form action="/master-barang/{{$key->id}}" method="POST" class="display-non">
+                            <form action="/user/{{$key->id}}" method="POST" class="display-non">
                                 @csrf
                                 @method('DELETE')
                                 <button input type="submit" class="btn btn-outline-danger my-1" value="Delete"><i

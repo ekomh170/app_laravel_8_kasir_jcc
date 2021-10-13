@@ -20,21 +20,20 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-//     \UniSharp\LaravelFilemanager\Lfm::routes();
-// });
-
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/user', UserController::class);
-Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show']);
-Route::resource('/master-barang', MbarangController::class);
-Route::resource('/transaksi-pembelian', TpembelianController::class);
-Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class);
-Route::resource('/dashboard', DashboardController::class);
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+    Route::group(['middleware' => ['web']], function () {
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('checkRole:Admin,Kasir');
+        Route::resource('/user', UserController::class)->middleware('checkRole:Admin');
+        Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show'])->middleware('checkRole:Admin,Kasir');
+        Route::resource('/master-barang', MbarangController::class)->middleware('checkRole:Admin,Kasir');
+        Route::resource('/transaksi-pembelian', TpembelianController::class)->middleware('checkRole:Admin,Kasir');
+        Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class)->middleware('checkRole:Admin,Kasir');
+        Route::resource('/dashboard', DashboardController::class)->middleware('checkRole:Admin');
+    });
+// });
