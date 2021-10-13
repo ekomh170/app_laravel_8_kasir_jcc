@@ -88,4 +88,17 @@ class UserController extends Controller
         $user->delete();
         return redirect('/data-pengguna');
     }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $user = User::where('name', 'role', $cari)->get();
+
+        // ddd($user);
+        // mengirim data pegawai ke view index
+        return view('data_pengguna.index', compact('user'));
+    }
 }

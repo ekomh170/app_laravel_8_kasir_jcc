@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Carbon;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -43,9 +44,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     // protected $table = 'users';
+
     public function profile()
     {
         return $this->hasOne('App\Models\Profile');
+    }
+
+    public function getCreatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->translatedFormat('l, d F Y H:i:s');
+    }
+
+    public function getUpdatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['updated_at'])->translatedFormat('l, d F Y H:i:s');
     }
 }

@@ -110,4 +110,16 @@ class MbarangController extends Controller
         $barang->delete();
         return redirect('/master-barang');
     }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $barang = Mbarang::where('nama_barang', 'harga_satuan', $cari);
+
+        // mengirim data pegawai ke view index
+        return view('master_barang.index', compact('barang'));
+    }
 }

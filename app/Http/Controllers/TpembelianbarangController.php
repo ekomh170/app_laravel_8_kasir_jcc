@@ -36,7 +36,10 @@ class TpembelianbarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TpembelianBarang::create([
+            "nama_barang" => $request["nama_barang"],
+            "harga_satuan" => $request["harga_satuan"]
+        ]);
     }
 
     /**
@@ -72,7 +75,20 @@ class TpembelianbarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga_satuan' => 'required',
+        ]);
+
+        $barang = Mbarang::find($id);
+
+        $data_barang = [
+            'nama_barang' => $request->nama_barang,
+            'harga_satuan' => $request->harga_satuan,
+        ];
+
+        $barang->update($data_barang);
+        return redirect('/master-barang');
     }
 
     /**

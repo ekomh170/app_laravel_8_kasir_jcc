@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,13 +28,24 @@ Auth::routes();
 
 // Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
 //     \UniSharp\LaravelFilemanager\Lfm::routes();
-    Route::group(['middleware' => ['web']], function () {
-        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('checkRole:Admin,Kasir');
-        Route::resource('/user', UserController::class)->middleware('checkRole:Admin');
-        Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show'])->middleware('checkRole:Admin,Kasir');
-        Route::resource('/master-barang', MbarangController::class)->middleware('checkRole:Admin,Kasir');
-        Route::resource('/transaksi-pembelian', TpembelianController::class)->middleware('checkRole:Admin,Kasir');
-        Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class)->middleware('checkRole:Admin,Kasir');
-        Route::resource('/dashboard', DashboardController::class)->middleware('checkRole:Admin');
-    });
+Route::group(['middleware' => ['web']], function () {
+    // Halaman Utama
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('checkRole:Admin,Kasir');
+    // Halaman Utama
+
+    Route::resource('/user', UserController::class)->middleware('checkRole:Admin');
+    Route::resource('/master-barang', MbarangController::class)->middleware('checkRole:Admin,Kasir');
+    Route::resource('/dashboard', DashboardController::class)->only(['index'])->middleware('checkRole:Admin');
+    Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show'])->middleware('checkRole:Admin,Kasir');
+
+    //Cari Fitur
+    Route::get('/user-cari', [UserController::class, 'cari'])->name('user-cari')->middleware('checkRole:Admin');
+    Route::get('/barang-cari', [App\Http\Controllers\MbarangController::class, 'cari'])->middleware('checkRole:Admin');
+    //Cari Fitur
+
+    //Transaksi
+    Route::resource('/transaksi-pembelian', TpembelianController::class)->middleware('checkRole:Admin,Kasir');
+    Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class)->middleware('checkRole:Admin,Kasir');
+    //Transaksi
+});
 // });

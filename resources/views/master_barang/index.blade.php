@@ -19,7 +19,15 @@ Data Barang
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Kumpulan Data Barang</h6>
     </div>
+
     <div class="card-body">
+        <h6>Cari Nama Barang Dan Harga</h6>
+        <form method="get" action="/barang-cari" class="form-inline mb-4">
+            <input class="form-control mr-1" type="search" placeholder="Cari Nama Barang Dan Harga" name="cari"
+                aria-label="search">
+            <button class="btn btn-outline-dark my-1 my-sm-0" type="submit" name="submit" value="submit"><i
+                    class="fa fa-search"></i></button>
+        </form>
         <div class="table-responsive">
             <table id="example1" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -50,18 +58,21 @@ Data Barang
                         <td>{{ $key->harga_satuan }}</td>
                         <td>{{ $key->created_at }}</td>
                         <td>{{ $key->updated_at }}</td>
-                        <td>
+                        <td class="text-center">
                             <a href="/master-barang/{{$key->id}}" class="btn btn-outline-info"><i
                                     class="fas fa-eye"></i></a>
                             @auth
                             <a href="/master-barang/{{$key->id}}/edit" class="btn btn-outline-primary"><i
                                     class="far fa-edit"></i></a>
+
                             <form action="/master-barang/{{$key->id}}" method="POST" class="display-non">
                                 @csrf
                                 @method('DELETE')
                                 <button input type="submit" class="btn btn-outline-danger my-1" value="Delete"><i
                                         class="far fa-trash-alt"></i></button>
                             </form>
+                            <a href="/transaksi-pembelian-barang/{{$key->id}}/create" class="btn btn-outline-success"><i
+                                    class="fas fa-shopping-cart"></i></a>
                             @endauth
                         </td>
                     </tr>

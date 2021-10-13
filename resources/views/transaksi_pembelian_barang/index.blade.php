@@ -43,14 +43,26 @@ Data Transaksi Pembelian Barang
                         <th>Harga Satuan</th>
                         <th>Waktu Dibuat</th>
                         <th>Waktu Diupdate</th>
+                        <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach ($tpembelianb as $item => $key)
                     <tr>
                         <td>{{ $item + 1 }}</td>
-                        <td>{{ $key->transaksi_pembelian_id }}</td>
-                        <td>{{ $key->master_barang_id }}</td>
+                        <td>{{ $key->Mbarang->nama_barang }}</td>
+                        {{-- <td>
+                            @foreach ($key->Tpembelian as $data_transaksi_pembelian_barang )
+                            {{ $data_transaksi_pembelian_barang->harga_satuan }}</td>
+                        @endforeach
+                        <td> --}}
+                            {{-- <td>
+                            @foreach ($key->Mbarang as $data_barang => $barang)
+                            <ul>
+                                {{ $barang->data_barang }}
+                            </ul>
+                            @endforeach
+                        </td> --}}
                         <td>{{ $key->jumlah }}</td>
                         <td>{{ $key->harga_satuan }}</td>
                         <td>{{ $key->created_at }}</td>

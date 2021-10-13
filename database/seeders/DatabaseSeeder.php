@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Profile;
 use App\Models\Mbarang;
+use App\Models\Tpembelian;
+use App\Models\Tpembelianbarang;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -109,6 +111,47 @@ class DatabaseSeeder extends Seeder
             'user_id' => 3,
         ]);
         //Profile
+
+
+        //Transaksi Pembelian
+        Tpembelian::create([
+            'total_harga' => 39500,
+        ]);
+
+        Tpembelian::create([
+            'total_harga' => 200000,
+        ]);
+        //Transaksi Pembelian
+
+        //Transaksi Pembelian Barang
+        Tpembelianbarang::create([
+            'transaksi_pembelian_id' => 1,
+            'master_barang_id' => 1,
+            'jumlah' => 10,
+            'harga_satuan' => 3000,
+        ]);
+
+        Tpembelianbarang::create([
+            'transaksi_pembelian_id' => 1,
+            'master_barang_id' => 3,
+            'jumlah' => 5,
+            'harga_satuan' => 1000,
+        ]);
+
+        Tpembelianbarang::create([
+            'transaksi_pembelian_id' => 1,
+            'master_barang_id' => 4,
+            'jumlah' => 3,
+            'harga_satuan' => 1500,
+        ]);
+
+        Tpembelianbarang::create([
+            'transaksi_pembelian_id' => 2,
+            'master_barang_id' => 5,
+            'jumlah' => 10,
+            'harga_satuan' => 20000,
+        ]);
+        //Transaksi Pembelian Barang
 
     }
 }

@@ -58,12 +58,22 @@
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
                 </ul>
+                @if (Route::has('login'))
+                @auth
+                <span class="nav-item">
+                    <a class="btn-solid-sm" href="{{ url('/home') }}">Home</a>
+                </span>
+                @else
                 <span class="nav-item">
                     <a class="btn-solid-sm" href="{{ route('login') }}">Masuk Akun</a>
                 </span>
+                @if (Route::has('register'))
                 <span class="nav-item">
                     <a class="btn-solid-sm" href="{{ route('register') }}">Daftar Akun</a>
                 </span>
+                @endif
+                @endauth
+                @endif
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -78,8 +88,8 @@
                     <div class="text-container">
                         <div class="section-title">Aplikasi Kasir Laravel 8</div>
                         <h1 class="h1-large">Aplikasi Kasir</h1>
-                        <p class="p-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque
-                            ut ultrices sollicitudin</p>
+                        <p class="p-large">Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC
+                        Partnership - Project Challenge (Tantangan)</p>
                         @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
@@ -325,7 +335,7 @@
 
 
     <!-- Projects -->
-    <div id="projects" class="filter bg-white">
+    <div id="projects" class="filter bg-white mb-6">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -416,7 +426,7 @@
     <!-- end of projects -->
 
     <!-- Footer -->
-    <div class="footer bg-gray">
+    <div class="footer bg-gray mt-6">
         <img class="decoration-city" src="{{ asset('zinc') }}/images/decoration-city.svg" alt="alternative">
         <div class="container">
             <div class="row">
@@ -463,7 +473,7 @@
 
 
     <!-- Copyright -->
-    <div class="copyright bg-gray">
+    <div class="copyright bg-gray mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
