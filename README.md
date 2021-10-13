@@ -1,3 +1,13 @@
+# Biodata Perserta JCC
+
+<p>Nama : Eko Muchamad Haryono</p>
+<p>Kelas : Laravel</p>
+<p>Email : <a>ekomh13@gmail.com</a></p>
+
+# Link Deploy
+
+Link :
+
 ## Aplikasi Kasir Sederhana Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
 
 Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC Partnership - Project Challenge (Tantangan)
