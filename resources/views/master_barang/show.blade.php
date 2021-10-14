@@ -18,4 +18,5 @@ Data Lengkap Barang
         <h4 class="card-text"><b>Harga Satuan</b> : {{ $barang->harga_satuan }}</h4>
     </div>
 </div>
+<a href="{{ url('master-barang') }}" class="btn btn-danger">Kembali</a>
 @endsection

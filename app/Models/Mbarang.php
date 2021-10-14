@@ -12,7 +12,7 @@ class Mbarang extends Model
     protected $fillable = ["nama_barang", "harga_satuan"];
     use HasFactory;
 
-    public function Tpembelianbarang()
+    public function transaksi_pembelian_barang()
     {
         return $this->hasMany('App\Models\Tpembelianbarang');
     }

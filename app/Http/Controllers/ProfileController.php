@@ -31,8 +31,51 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'jenis_kelamin' => ['required', 'string'],
+            'tempat_lahir' => ['required', 'string'],
+            'tgl_lahir' => ['required'],
+            'alamat' => ['required', 'string'],
+            'bio' => ['required', 'string'],
+            'no_telp' => ['required'],
+        ]);
+
+        $profile = Profile::find($id);
+
+        if ($request->has('profile_foto')) {
+            $path = 'img/img_storage/profile/';
+            \Illuminate\Support\Facades\File::delete($path . $profile->profile_foto);
+            $gambar = $request['profile_foto'];
+            $new_gambar = time() . ' - ' . $gambar->getClientOriginalName();
+            $gambar->move($path, $new_gambar);
+
+
+            $profile_data = [
+                'umur' => $request['umur'],
+                'jenis_kelamin' => $request['jenis_kelamin'],
+                'tempat_lahir' => $request['tempat_lahir'],
+                'tgl_lahir' => $request['tgl_lahir'],
+                'alamat' => $request['alamat'],
+                'bio' => $request['bio'],
+                'no_telp' => $request['no_telp'],
+                'profile_foto' => $new_gambar,
+            ];
+        } else {
+            $profile_data = [
+                'umur' => $request['umur'],
+                'jenis_kelamin' => $request['jenis_kelamin'],
+                'tempat_lahir' => $request['tempat_lahir'],
+                'tgl_lahir' => $request['tgl_lahir'],
+                'alamat' => $request['alamat'],
+                'bio' => $request['bio'],
+                'no_telp' => $request['no_telp']
+            ];
+        }
+
+        Profile::whereId($id)->update($profile_data);
+        alert()->success('Berhasil Mengubah Profilemu', 'Profile');
+        return redirect('profile/');
     }
 }

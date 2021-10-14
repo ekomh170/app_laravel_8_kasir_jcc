@@ -12,9 +12,9 @@ class Tpembelian extends Model
     protected $fillable = ["total_harga"];
     use HasFactory;
 
-    public function Tpembelianbarang()
+    public function transaksi_pembelian_barang()
     {
-        return $this->hasMany('App\Models\Tpembelianbarang');
+        return $this->hasMany('App\Models\Tpembelianbarang', 'transaksi_pembelian_id');
     }
 
     public function getCreatedAtAttribute()

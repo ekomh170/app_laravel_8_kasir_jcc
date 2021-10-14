@@ -143,7 +143,17 @@ Edit Data Profile
         </div>
         @enderror
     </div>
+    <div class="form-group">
+        <label for="profile_foto" class="text-md-right">{{ __('Profile Foto') }}</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="profile_foto">
+        @error('profile_foto')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
     <button type="submit" class="btn btn-primary">Edit</button>
+    <a href="{{ url('profile') }}" class="btn btn-danger">Kembali</a>
 </form>
 @push('scripts')
 <script>

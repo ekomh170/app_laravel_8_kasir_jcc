@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Kumpulan Data PDF Transaksi Pembelian Barang</title>
+    <title>Kumpulan Data PDF Transaksi Pembelian</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
         .page-break {
@@ -35,7 +35,7 @@
 
 <body>
     <center>
-        <h3>Kumpulan Data PDF Transaksi Pembelian Barang</h3>
+        <h3>Kumpulan Data PDF Transaksi Pembelian</h3>
         <hr style="width:75%">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -47,24 +47,14 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Transaksi Pembelian ID</th>
-                            <th>Master Barang ID</th>
-                            <th>Jumlah</th>
-                            <th>Harga Satuan</th>
-                            <th>Waktu Dibuat</th>
-                            <th>Waktu Diupdate</th>
+                            <th>Harga Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($tpembelianb as $item => $key)
+                        @foreach ($tpembelian as $item => $key)
                         <tr>
                             <td>{{ $item + 1 }}</td>
-                            <td>{{ $key->nama_barang_id }}</td>
-                            <td>{{ $key->transaksi_pembelian_id }}</td>
-                            <td>{{ $key->jumlah }}</td>
-                            <td>{{ $key->harga_satuan }}</td>
-                            <td>{{ $key->created_at }}</td>
-                            <td>{{ $key->updated_at }}</td>
+                            <td>{{ $key->total_harga }}</td>
                         </tr>
                         @endforeach
                     </tbody>

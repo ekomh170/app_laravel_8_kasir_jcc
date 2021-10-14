@@ -67,6 +67,7 @@ Edit Data Transaksi Pembelian Barang
         @enderror
     </div>
     <button type="submit" class="btn btn-primary">Edit</button>
+    <a href="{{ url('transaksi-pembelian-barang') }}" class="btn btn-danger">Kembali</a>
 </form>
 @push('scripts')
 <script>

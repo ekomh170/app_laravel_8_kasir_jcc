@@ -12,12 +12,12 @@ class Tpembelianbarang extends Model
     protected $fillable = ["transaksi_pembelian_id", "master_barang_id", "jumlah", "harga_satuan"];
     use HasFactory;
 
-    public function Mbarang()
+    public function master_barang()
     {
         return $this->belongsTo('App\Models\Mbarang');
     }
 
-    public function Tpembelian()
+    public function transaksi_pembelian()
     {
         return $this->belongsTo('App\Models\Tpembelian');
     }

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tpembelianbarang;
+use App\Models\Mbarang;
+use App\Models\Tpembelian;
 use Illuminate\Http\Request;
+use PDF;
+// use \Barryvdh\DomPDF\PDF;
+
 
 class TpembelianbarangController extends Controller
 {
@@ -25,7 +30,10 @@ class TpembelianbarangController extends Controller
      */
     public function create()
     {
-        return view('transaksi_pembelian_barang.create');
+        $tpembelianb = TpembelianBarang::all();
+        $tpembelian = Tpembelian::all();
+        $barang = Mbarang::all();
+        return view('transaksi_pembelian_barang.create', compact('tpembelianb', 'tpembelian', 'barang'));
     }
 
     /**
@@ -36,10 +44,30 @@ class TpembelianbarangController extends Controller
      */
     public function store(Request $request)
     {
-        TpembelianBarang::create([
-            "nama_barang" => $request["nama_barang"],
+        $request->validate([
+            'transaksi_pembelian_id' => 'required',
+            'nama_barang_id' => 'required',
+            'jumlah' => 'required',
+            'harga_satuan' => 'required',
+        ]);
+
+        // $barang = Mbarang::find($id);
+
+        $TpembelianBarang = TpembelianBarang::create([
+            "transaksi_pembelian_id" => $request["transaksi_pembelian_id"],
+            "transaksi_pembelian_id" => $request["nama_barang_id"],
+            "jumlah" => $request["jumlah"],
             "harga_satuan" => $request["harga_satuan"]
         ]);
+
+        $total_harga = $request["jumlah"] * $request["harga_satuan"];
+        $Tpembelian = Tpembelian::create([
+            "total_harga" => $total_harga,
+        ]);
+
+        return $TpembelianBarang;
+        return $Tpembelian;
+        return redirect('/transaksi-pembelian-barang');
     }
 
     /**
@@ -63,7 +91,9 @@ class TpembelianbarangController extends Controller
     public function edit($id)
     {
         $tpembelianb = TpembelianBarang::find($id);
-        return view('transaksi_pembelian_barang.index', compact('tpembelianb'));
+        $tpembelian = Tpembelian::all();
+        $barang = Mbarang::all();
+        return view('transaksi_pembelian_barang.index', compact('tpembelianb', 'tpembelian', 'barang'));
     }
 
     /**
@@ -76,19 +106,23 @@ class TpembelianbarangController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_barang' => 'required',
-            'harga_satuan' => 'required',
+            'transaksi_pembelian_id' => 'required',
+            'nama_barang_id' => 'required',
+            'jumlah' => 'required',
+            'c' => 'required',
         ]);
 
-        $barang = Mbarang::find($id);
+        $tpembelianb = TpembelianBarang::find($id);
 
-        $data_barang = [
-            'nama_barang' => $request->nama_barang,
+        $tpembelianbarang = [
+            'transaksi_pembelian_id' => $request->transaksi_pembelian_id,
+            'nama_barang_id' => $request->nama_barang_id,
+            'jumlah' => $request->jumlah,
             'harga_satuan' => $request->harga_satuan,
         ];
 
-        $barang->update($data_barang);
-        return redirect('/master-barang');
+        $tpembelianb->update($tpembelianbarang);
+        return redirect('/transaksi-pembelian-barang');
     }
 
     /**
@@ -102,5 +136,31 @@ class TpembelianbarangController extends Controller
         $tpembelianb = TpembelianBarang::find($id);
         $tpembelianb->delete();
         return redirect('/transaksi-pembelian-barang');
+    }
+
+    public function pdf()
+    {
+        $tpembelianb = TpembelianBarang::all();
+        $pdf = PDF::loadview('transaksi_pembelian_barang.pdf', compact('tpembelianb'));
+        return $pdf->stream('transaksi_pembelian_barang.pdf');
+    }
+
+    public function print()
+    {
+        $tpembelianb = TpembelianBarang::all();
+        return view('transaksi_pembelian_barang.print', compact('tpembelianb'));
+    }
+
+    public function pdf_detail($id)
+    {
+        $tpembelianb = TpembelianBarang::find($id);
+        $pdf = PDF::loadview('transaksi_pembelian_barang.pdf_detail', compact('tpembelianb'));
+        return $pdf->stream('transaksi_pembelian_barang_detail.pdf');
+    }
+
+    public function print_detail($id)
+    {
+        $tpembelianb = TpembelianBarang::find($id);
+        return view('transaksi_pembelian_barang.print_detail', compact('tpembelianb'));
     }
 }

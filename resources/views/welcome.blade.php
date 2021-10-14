@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
     <!-- Webpage Title -->
-    <title>Halaman Utama | Aplikasi Kasir</title>
+    <title>Halaman Utama Sebelum Login | Aplikasi Kasir</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
@@ -88,17 +88,18 @@
                     <div class="text-container">
                         <div class="section-title">Aplikasi Kasir Laravel 8</div>
                         <h1 class="h1-large">Aplikasi Kasir</h1>
-                        <p class="p-large">Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC
-                        Partnership - Project Challenge (Tantangan)</p>
+                        <p class="p-large">Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk
+                            membuat aplikasi kasir sederhana Kelas JCC
+                            Partnership - Project Challenge (Tantangan)</p>
                         @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
-                            <a href="{{ url('/home') }}" class="btn-solid-lg">Home</a>
+                            <a href="{{ url('/home') }}" class="btn-solid-lg">Halaman Utama</a>
                             @else
-                            <a href="{{ route('login') }}" class="btn-solid-lg">Log in</a>
+                            <a href="{{ route('login') }}" class="btn-solid-lg">Masuk Akun</a>
 
                             @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn-solid-lg">Register</a>
+                            <a href="{{ route('register') }}" class="btn-solid-lg">Daftar Akun</a>
                             @endif
                             @endauth
                         </div>

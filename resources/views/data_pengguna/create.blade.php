@@ -130,6 +130,7 @@ Tambah Data Data Pengguna Apps
         @enderror
     </div>
     <button type="submit" class="btn btn-primary">Tambah</button>
+    <a href="{{ url('user') }}" class="btn btn-danger">Kembali</a>
 </form>
 @push('scripts')
 <script>

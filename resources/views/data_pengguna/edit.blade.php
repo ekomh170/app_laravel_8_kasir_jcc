@@ -143,6 +143,7 @@ Edit Data Pengguna Apps
         @enderror
     </div>
     <button type="submit" class="btn btn-primary">Edit</button>
+    <a href="{{ url('user') }}" class="btn btn-danger">Kembali</a>
 </form>
 @push('scripts')
 <script>

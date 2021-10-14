@@ -10,7 +10,43 @@ Link :
 
 ## Aplikasi Kasir Sederhana Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
 
-Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC Partnership - Project Challenge (Tantangan)
+Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC Partnership - Project Challenge (Tantangan).
+
+## Cara Instalasi :
+
+-   Follow Github Saya
+-   Star Repo Github Saya
+-   clone project repo saya dengan cara menuliskan pada terminal/cmd/git bash : git clone https://github.com/ekomh170/app_laravel_8_kasir_jcc.git
+-   lalu masuk ke direktori repo yg sudah di clone dengan ketik lg pada terminal/cmd/git bash <b>cd app_laravel_8_kasir_jcc</b>
+-   lalu ketik composser install dan php artisan key generate (jangan lupa salin dan setting file env)
+-   migrate database pada terminal/cmd/git bash
+-   jalankan php artisan db:seed pada terminal/cmd/git bash
+
+Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk membuatkan data secara otomatis pada database untuk password akun nya adalah :
+
+<b>Akun Admin :</b>
+
+<ul>
+<li>email : ekomh13@gmail.com</li>
+<li>password : Amano2829</li>
+</ul>
+
+<b>Akun Kasir :</b>
+
+<ul>
+<li>email : dara@gmail.com</li>
+<li>password : Amano2829</li>
+</ul>
+
+<ul>
+<li>email : amalia@gmail.com</li>
+<li>password : Amano2829</li>
+</ul>
+
+## Fitur Role Atau Pembatasan Menu Untuk Setiap Users
+
+-   Admin
+-   Kasir
 
 ## Fitur Aplikasi
 
@@ -38,7 +74,11 @@ Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk me
 -   Ubah Data (Master Barang)<br>
 -   Hapus Data (Master Barang)<br>
 -   Detail Data (Master Barang)<br>
--   Cari Data (Master Barang)<br><br>
+-   Cari Data (Master Barang)<br>
+-   Print Data (Transaksi Pembelian)<br>
+-   PDF Data (Transaksi Pembelian)<br>
+-   Print Data Detail (Transaksi Pembelian)<br>
+-   PDF Data Detail (Transaksi Pembelian)<br><br>
 
     C. Transaksi Pembelian<br>
 
@@ -46,7 +86,11 @@ Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk me
 -   Ubah Data (Transaksi Pembelian)<br>
 -   Hapus Data (Transaksi Pembelian)<br>
 -   Detail Data (Transaksi Pembelian)<br>
--   Cari Data (Transaksi Pembelian)<br><br>
+-   Cari Data (Transaksi Pembelian)<br>
+-   Print Data (Transaksi Pembelian)<br>
+-   PDF Data (Transaksi Pembelian)<br>
+-   Print Data Detail (Transaksi Pembelian)<br>
+-   PDF Data Detail (Transaksi Pembelian)<br><br>
 
     C. Transaksi Pembelian Barang<br>
 
@@ -56,17 +100,14 @@ Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk me
 -   Detail Data (Transaksi Pembelian Barang)<br>
 -   Cari Data (Transaksi Pembelian Barang)<br><br>
 
-## Fitur Role Atau Pembatasan Menu Untuk Setiap Users
-
--   Admin
--   Kasir
-
 ## Aplikasi Screenshot
 
 <img src="public/assets_readme/img/Halaman_Utama.PNG" alt="Halaman Utama">
-<!-- <img src="public/assets_readme/Halaman_Utama_Setelah_Login.PNG" alt="Halaman Setalah Login"> -->
+<img src="public/assets_readme/img/Halaman_Utama_Setelah_Login.PNG" alt="Halaman Setalah Login">
 <img src="public/assets_readme/img/Menu_Admin.PNG" alt="Menu Admin">
-<!-- <img src="public/assets_readme/Menu_Kasir.PNG" alt="Menu Kasir"> -->
+<img src="public/assets_readme/img/Menu_Kasir.PNG" alt="Menu Kasir">
+<img src="public/assets_readme/img/Daftar_Transaksi.PNG" alt="Daftar Transaksi">
+<img src="public/assets_readme/img/Harga_Total.PNG" alt="Harga Total">
 
 ## Alat Yang Digunakan Untuk Membuat Web :
 
@@ -95,6 +136,7 @@ C. Komponen
     -   Sb Admin 2 (Bootstrap 4)
     -   Zinc (Bootstrap 5) (Khusus Halaman Utama)
 -   Library :
+    -   Carbon Laravel Time
     -   Dompdf
     -   Laravel Excel
     -   Sweet Alert

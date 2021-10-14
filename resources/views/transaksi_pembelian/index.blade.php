@@ -9,15 +9,19 @@ Aplikasi Kasir | Project 2 Laravel JCC
 Data Transaksi Pembelian
 @endsection
 @section('content')
-<a href="{{ url('master-barang/create') }}"><button type="button" class="btn btn-outline-success"><i
+<a href="{{ url('transaksi-pembelian/create') }}"><button type="button" class="btn btn-outline-success"><i
             class="fas fa-plus-square"></i></button></a>
-<div class="h2 mb-3 text-center">Data Transaksi Pembelian</div>
+<a href="{{ url('pdf-transaksi-pembelian') }}"><button type="button" class="btn btn-outline-danger"><i
+            class="fas fa-file-pdf"></i></button></a>
+<a href="{{ url('print-transaksi-pembelian') }}"><button type="button" class="btn btn-outline-warning"><i
+            class="fas fa-print"></i></button></a>
+<div class="h2 mb-3 text-center">Total Akhir Transaksi Pembelian Barang</div>
 
 <hr style="width:75%">
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Kumpulan Transaksi Pembelian</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Total Akhir Transaksi Pembelian</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">

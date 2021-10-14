@@ -71,8 +71,8 @@ Data Barang
                                 <button input type="submit" class="btn btn-outline-danger my-1" value="Delete"><i
                                         class="far fa-trash-alt"></i></button>
                             </form>
-                            <a href="/transaksi-pembelian-barang/{{$key->id}}/create" class="btn btn-outline-success"><i
-                                    class="fas fa-shopping-cart"></i></a>
+                            {{-- <a href="/transaksi-pembelian-barang/{{$key->id}}/create" class="btn
+                            btn-outline-success"><i class="fas fa-shopping-cart"></i></a> --}}
                             @endauth
                         </td>
                     </tr>

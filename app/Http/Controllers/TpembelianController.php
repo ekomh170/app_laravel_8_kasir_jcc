@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tpembelian;
 use Illuminate\Http\Request;
+use PDF;
 
 class TpembelianController extends Controller
 {
@@ -36,7 +37,7 @@ class TpembelianController extends Controller
      */
     public function store(Request $request)
     {
-        TpembelianBarang::create([
+        Tpembelian::create([
             "nama_barang" => $request["nama_barang"],
             "harga_satuan" => $request["harga_satuan"]
         ]);
@@ -80,15 +81,15 @@ class TpembelianController extends Controller
             'harga_satuan' => 'required',
         ]);
 
-        $barang = Mbarang::find($id);
+        // $barang = Mbarang::find($id);
 
         $data_barang = [
             'nama_barang' => $request->nama_barang,
             'harga_satuan' => $request->harga_satuan,
         ];
 
-        $barang->update($data_barang);
-        return redirect('/master-barang');
+        // $barang->update($data_barang);
+        // return redirect('/master-barang');
     }
 
     /**
@@ -102,5 +103,30 @@ class TpembelianController extends Controller
         $tpembelian = Tpembelian::find($id);
         $tpembelian->delete();
         return redirect('/transaksi-pembelian');
+    }
+
+    public function pdf()
+    {
+        $tpembelian = Tpembelian::all();
+        $pdf = PDF::loadview('transaksi_pembelian.pdf', compact('tpembelian'));
+        return $pdf->stream('transaksi_pembelian.pdf');
+    }
+
+    public function print()
+    {
+        $tpembelian = Tpembelian::all();
+        return view('transaksi_pembelian.print', compact('tpembelian'));
+    }
+
+    public function pdf_detail($id)
+    {
+        $tpembelian = Tpembelian::find($id);
+        return view('transaksi_pembelian.pdf_detail', compact('tpembelian'));
+    }
+
+    public function print_detail($id)
+    {
+        $Tpembelian = Tpembelian::find($id);
+        return view('transaksi_pembelian.print_detail', compact('Tpembelian'));
     }
 }

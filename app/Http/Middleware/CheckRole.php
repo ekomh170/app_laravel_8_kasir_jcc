@@ -20,6 +20,10 @@ class CheckRole
         //jika akun yang login sesuai dengan role
         //maka silahkan akses
         //jika tidak sesuai akan diarahkan ke home
+        if (!Auth::user()) {
+            return redirect('/');
+        }
+
         $roles = array_slice(func_get_args(), 2);
 
         foreach ($roles as $role) {

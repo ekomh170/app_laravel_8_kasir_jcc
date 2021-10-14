@@ -28,4 +28,5 @@ Detail Data Pengguna Apps
         <a href="../profile" class="btn btn-outline-dark">Ubah Profile</a>
     </div>
 </div>
+<a href="{{ url('user') }}" class="btn btn-danger">Kembali</a>
 @endsection

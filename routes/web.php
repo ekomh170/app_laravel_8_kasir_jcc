@@ -38,6 +38,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/dashboard', DashboardController::class)->only(['index'])->middleware('checkRole:Admin');
     Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show'])->middleware('checkRole:Admin,Kasir');
 
+
+
     //Cari Fitur
     Route::get('/user-cari', [UserController::class, 'cari'])->name('user-cari')->middleware('checkRole:Admin');
     Route::get('/barang-cari', [App\Http\Controllers\MbarangController::class, 'cari'])->middleware('checkRole:Admin');
@@ -47,5 +49,26 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/transaksi-pembelian', TpembelianController::class)->middleware('checkRole:Admin,Kasir');
     Route::resource('/transaksi-pembelian-barang', TpembelianbarangController::class)->middleware('checkRole:Admin,Kasir');
     //Transaksi
+
+    // DATA PDF
+    Route::get('/pdf-transaksi-pembelian', [TpembelianController::class, 'pdf'])->name('pdf-transaksi-pembelian')->middleware('checkRole:Admin,Kasir');
+    Route::get('/pdf-transaksi-pembelian-barang', [TpembelianbarangController::class, 'pdf'])->name('pdf-transaksi-pembelian-barang')->middleware('checkRole:Admin,Kasir');
+    // DATA PDF
+
+    // DATA Print
+    Route::get('/print-transaksi-pembelian', [TpembelianController::class, 'print'])->name('print-transaksi-pembelian')->middleware('checkRole:Admin,Kasir');
+    Route::get('/print-transaksi-pembelian-barang', [TpembelianbarangController::class, 'print'])->name('print-transaksi-pembelian-barang')->middleware('checkRole:Admin,Kasir');
+    // DATA Print
+
+    // DATA PDF Detail
+    Route::get('/pdf-transaksi-pembelian-detail', [TpembelianController::class, 'pdfdetail'])->name('pdf-transaksi-pembelian-detail')->middleware('checkRole:Admin,Kasir');
+    Route::get('/pdf-transaksi-pembelian-barang-detail', [TpembelianbarangController::class, 'pdfdetail'])->name('pdf-transaksi-pembelian-barang-detail')->middleware('checkRole:Admin,Kasir');
+    // DATA PDF Detail
+
+    // DATA Print Detail
+    Route::get('/print-transaksi-pembelian-detail', [TpembelianController::class, 'printdetail'])->name('print-transaksi-pembelian-detail')->middleware('checkRole:Admin,Kasir');
+    Route::get('/print-transaksi-pembelian-barang-detail', [TpembelianbarangController::class, 'printdetail'])->name('print-transaksi-pembelian-barang-detail')->middleware('checkRole:Admin,Kasir');
+    // DATA Print Detail
+
 });
 // });

@@ -11,6 +11,11 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('home') }}">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Halaman Utama</span></a>
+    </li>
     @auth
     <!-- Nav Item - Dashboard -->
     @if (Auth::user()->role === "Admin")
@@ -76,19 +81,23 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Transaksi:</h6>
-                <a class="collapse-item" href="{{ url('transaksi-pembelian') }}">Transaksi Pembelian</a>
-                <a class="collapse-item" href="{{ url('transaksi-pembelian-barang') }}">Transaksi Pembelian
-                    <br>Barang</a>
+                <a class="collapse-item" href="{{ url('transaksi-pembelian') }}">Total Akhir <br> Transaksi
+                    Pembelian</a>
+                <a class="collapse-item" href="{{ url('transaksi-pembelian-barang') }}">Daftar Transaksi <br> Pembelian
+                    Barang</a>
             </div>
         </div>
     </li>
+    @endif
 
+    @if (Auth::user()->role == "Admin")
     <li class="nav-item">
         <a class="nav-link" href="{{ url('master-barang') }}">
 
             <i class="fas fa-fw fa-boxes"></i>
             <span>Master Product</span></a>
     </li>
+    @endif
 
 
     <li class="nav-item">
@@ -101,7 +110,6 @@
             @csrf
         </form>
     </li>
-    @endif
     @endauth
 
     <!-- Divider -->

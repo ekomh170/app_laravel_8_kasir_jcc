@@ -6,18 +6,22 @@
 Aplikasi Kasir | Project 2 Laravel JCC
 @endsection
 @section('judul_sub')
-Data Transaksi Pembelian Barang
+Daftar Transaksi Pembelian Barang
 @endsection
 @section('content')
 <a href="{{ url('transaksi-pembelian-barang/create') }}"><button type="button" class="btn btn-outline-success"><i
             class="fas fa-plus-square"></i></button></a>
-<div class="h2 mb-3 text-center">Data Transaksi Pembelian Barang</div>
+<a href="{{ url('pdf-transaksi-pembelian-barang') }}"><button type="button" class="btn btn-outline-danger"><i
+            class="fas fa-file-pdf"></i></button></a>
+<a href="{{ url('print-transaksi-pembelian-barang') }}"><button type="button" class="btn btn-outline-warning"><i
+            class="fas fa-print"></i></button></a>
+<div class="h2 mb-3 text-center">Daftar Transaksi Pembelian Barang</div>
 
 <hr style="width:75%">
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Kumpulan Transaksi Pembelian Barang</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Daftar Transaksi Pembelian Barang</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -26,9 +30,10 @@ Data Transaksi Pembelian Barang
                     <tr>
                         <th>No</th>
                         <th>Transaksi Pembelian ID</th>
-                        <th>Master Barang ID</th>
+                        <th>Nama Barang</th>
                         <th>Jumlah</th>
                         <th>Harga Satuan</th>
+                        <th>Total Harga</th>
                         <th>Waktu Dibuat</th>
                         <th>Waktu Diupdate</th>
                         <th>Aksi</th>
@@ -38,9 +43,10 @@ Data Transaksi Pembelian Barang
                     <tr>
                         <th>No</th>
                         <th>Transaksi Pembelian ID</th>
-                        <th>Master Barang ID</th>
+                        <th>Nama Barang</th>
                         <th>Jumlah</th>
                         <th>Harga Satuan</th>
+                        <th>Total Harga</th>
                         <th>Waktu Dibuat</th>
                         <th>Waktu Diupdate</th>
                         <th>Aksi</th>
@@ -50,21 +56,11 @@ Data Transaksi Pembelian Barang
                     @foreach ($tpembelianb as $item => $key)
                     <tr>
                         <td>{{ $item + 1 }}</td>
-                        <td>{{ $key->Mbarang->nama_barang }}</td>
-                        {{-- <td>
-                            @foreach ($key->Tpembelian as $data_transaksi_pembelian_barang )
-                            {{ $data_transaksi_pembelian_barang->harga_satuan }}</td>
-                        @endforeach
-                        <td> --}}
-                            {{-- <td>
-                            @foreach ($key->Mbarang as $data_barang => $barang)
-                            <ul>
-                                {{ $barang->data_barang }}
-                            </ul>
-                            @endforeach
-                        </td> --}}
+                        <td>{{ $key->transaksi_pembelian_id }}</td>
+                        <td>{{ $key->master_barang->nama_barang }}</td>
                         <td>{{ $key->jumlah }}</td>
                         <td>{{ $key->harga_satuan }}</td>
+                        <td>{{ $key->transaksi_pembelian->total_harga }}</td>
                         <td>{{ $key->created_at }}</td>
                         <td>{{ $key->updated_at }}</td>
                         <td>
