@@ -26,8 +26,7 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-//     \UniSharp\LaravelFilemanager\Lfm::routes();
+
 Route::group(['middleware' => ['web']], function () {
     // Halaman Utama
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('checkRole:Admin,Kasir');
@@ -37,11 +36,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/master-barang', MbarangController::class)->middleware('checkRole:Admin,Kasir');
     Route::resource('/dashboard', DashboardController::class)->only(['index'])->middleware('checkRole:Admin');
     Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show'])->middleware('checkRole:Admin,Kasir');
-
-    //Cari Fitur
-    // Route::get('/user-cari', [UserController::class, 'cari'])->name('user-cari')->middleware('checkRole:Admin');
-    // Route::get('/barang-cari', [App\Http\Controllers\MbarangController::class, 'cari'])->middleware('checkRole:Admin');
-    // //Cari Fitur
 
     //Transaksi
     Route::resource('/transaksi-pembelian', TpembelianController::class)->middleware('checkRole:Admin,Kasir');
@@ -67,6 +61,16 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/print-transaksi-pembelian-detail/{id}', [TpembelianController::class, 'print_detail'])->name('print-transaksi-pembelian-detail')->middleware('checkRole:Admin,Kasir');
     Route::get('/print-transaksi-pembelian-barang-detail/{id}', [TpembelianbarangController::class, 'print_detail'])->name('print-transaksi-pembelian-barang-detail')->middleware('checkRole:Admin,Kasir');
     // DATA Print Detail
+
+    //Library dan Search Manual Laravel Diganti kan oleh datatable dan akhir nya tidak jadi di buat
+    // Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    //     \UniSharp\LaravelFilemanager\Lfm::routes();
+    //Cari Fitur
+    // Route::get('/user-cari', [UserController::class, 'cari'])->name('user-cari')->middleware('checkRole:Admin');
+    // Route::get('/barang-cari', [App\Http\Controllers\MbarangController::class, 'cari'])->middleware('checkRole:Admin');
+    // //Cari Fitur
+    //Library dan Search Manual Laravel Diganti kan oleh datatable dan akhir nya tidak jadi di buat
+
 
 });
 // });

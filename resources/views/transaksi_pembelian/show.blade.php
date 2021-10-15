@@ -39,7 +39,7 @@ Detail Data Lengkap Total Akhir Transaksi Pembelian Transaksi Pembelian Barang
             </li>
         </ul>
         @endforeach
-        <h4>Total Harga : {{ $tpembelian->total_harga }}</h4>
+        <h4><b>Total Harga : </b>{{ $tpembelian->total_harga }}</h4>
         <h4 class="card-text">
         </h4>
     </div>

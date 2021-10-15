@@ -29,12 +29,14 @@ Data Transaksi Pembelian
                 <thead>
                     <tr>
                         <th>Nomor Daftar Transaksi Barang</th>
+                        <th>Total Harga Akhir dari daftar Transaksi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>Nomor Daftar Transaksi Barang</th>
+                        <th>Total Harga Akhir dari daftar Transaksi</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>
@@ -42,6 +44,7 @@ Data Transaksi Pembelian
                     @foreach ($tpembelian as $item => $key)
                     <tr>
                         <td>{{ $item + 1 }}</td>
+                        <td>{{ $key->total_harga  }}</td>
                         <td>
                             <a href="/transaksi-pembelian/{{$key->id}}" class="btn btn-outline-info"><i
                                     class="fas fa-eye"></i></a>

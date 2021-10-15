@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Detail Data Transaksi Pembelian Barang</title>
+    <title>PDF Detail Data Daftar Transaksi Pembelian Barang</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
         * {
@@ -58,8 +58,9 @@
         <h2>Aplikasi Kasir</h2>
         <hr style="width:75%">
         <div class="card-body">
-            <h4>Detail Data Transaksi Pembelian Barang</h4>
-            <div class="card-text"><b>Nomor Daftar Transaksi Pembelian</b> : {{ $tpembelianb->transaksi_pembelian_id }}
+            <h4>PDF Detail Data Daftar Transaksi Pembelian Barang</h4>
+            <div class="card-text"><b>Nomor Total Akhir Transaksi Barang</b> :
+                {{ $tpembelianb->transaksi_pembelian_id }}
             </div>
             <div class="card-text"><b>Nama Barang</b> : {{ $tpembelianb->master_barang->nama_barang }}</div>
             <div class="card-text"><b>Jumlah</b> : {{ $tpembelianb->jumlah }}</div>

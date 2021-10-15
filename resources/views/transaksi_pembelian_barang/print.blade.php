@@ -47,10 +47,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Transaksi Pembelian ID</th>
-                            <th>Master Barang ID</th>
+                            <th>Nomor Total Akhir Transaksi Barang</th>
+                            <th>Nama Barang</th>
                             <th>Jumlah</th>
                             <th>Harga Satuan</th>
+                            <th>Total Harga</th>
                             <th>Waktu Dibuat</th>
                             <th>Waktu Diupdate</th>
                         </tr>
@@ -59,10 +60,11 @@
                         @foreach ($tpembelianb as $item => $key)
                         <tr>
                             <td>{{ $item + 1 }}</td>
-                            <td>{{ $key->nama_barang_id }}</td>
                             <td>{{ $key->transaksi_pembelian_id }}</td>
+                            <td>{{ $key->master_barang->nama_barang }}</td>
                             <td>{{ $key->jumlah }}</td>
                             <td>{{ $key->harga_satuan }}</td>
+                            <td>{{ $key->harga_satuan * $key->jumlah }}</td>
                             <td>{{ $key->created_at }}</td>
                             <td>{{ $key->updated_at }}</td>
                         </tr>

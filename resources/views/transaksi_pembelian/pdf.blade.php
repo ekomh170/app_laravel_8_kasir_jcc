@@ -47,12 +47,14 @@
                     <thead>
                         <tr>
                             <th>Nomor Daftar Transaksi Barang</th>
+                            <th>Total Harga Akhir dari daftar Transaksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($tpembelian as $item => $key)
                         <tr>
                             <td>{{ $item + 1 }}</td>
+                            <td>{{ $key->total_harga  }}</td>
                         </tr>
                         @endforeach
                     </tbody>

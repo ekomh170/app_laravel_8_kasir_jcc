@@ -6,7 +6,7 @@
 Aplikasi Kasir | Project 2 Laravel JCC
 @endsection
 @section('judul_sub')
-Daftar Transaksi Pembelian Barang
+Detail Data Daftar Transaksi Pembelian Barang
 @endsection
 @section('content')
 <a href="{{ url('transaksi-pembelian-barang/create') }}"><button type="button" class="btn btn-outline-success"><i
@@ -15,7 +15,7 @@ Daftar Transaksi Pembelian Barang
             class="fas fa-file-pdf"></i></button></a>
 <a href="{{ url('print-transaksi-pembelian-barang') }}"><button type="button" class="btn btn-outline-warning"><i
             class="fas fa-print"></i></button></a>
-<div class="h2 mb-3 text-center">Daftar Transaksi Pembelian Barang</div>
+<div class="h2 mb-3 text-center">Detail Data Daftar Transaksi Pembelian Barang</div>
 
 <hr style="width:75%">
 <!-- DataTales Example -->
@@ -29,7 +29,7 @@ Daftar Transaksi Pembelian Barang
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Transaksi Pembelian ID</th>
+                        <th>Nomor Total Akhir Transaksi Barang</th>
                         <th>Nama Barang</th>
                         <th>Jumlah</th>
                         <th>Harga Satuan</th>
@@ -42,7 +42,7 @@ Daftar Transaksi Pembelian Barang
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>Transaksi Pembelian ID</th>
+                        <th>Nomor Total Akhir Transaksi Barang</th>
                         <th>Nama Barang</th>
                         <th>Jumlah</th>
                         <th>Harga Satuan</th>
