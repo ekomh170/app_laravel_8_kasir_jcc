@@ -6,7 +6,7 @@
 
 # Link Deploy
 
-Link :
+Deploy Heroku : https://app-kasir-laravel-8-ryo.herokuapp.com/ (Masih Proses Perbaikan)
 
 ## Aplikasi Kasir Sederhana V1.0 Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
 
