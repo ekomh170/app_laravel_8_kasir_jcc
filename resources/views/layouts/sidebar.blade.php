@@ -96,7 +96,7 @@
         <a class="nav-link" href="{{ url('master-barang') }}">
 
             <i class="fas fa-fw fa-boxes"></i>
-            <span>Master Product</span></a>
+            <span>Master Barang</span></a>
     </li>
     @endif
 

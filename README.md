@@ -8,9 +8,9 @@
 
 Link :
 
-## Aplikasi Kasir Sederhana Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
+## Aplikasi Kasir Sederhana V1.0 Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
 
-Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC Partnership - Project Challenge (Tantangan).
+Jabar Coding Camp (JCC), Aplikasi Kasir V1.0 (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC Partnership - Project Challenge (Tantangan).
 
 ## Cara Instalasi ke Server Lokal :
 
@@ -103,7 +103,7 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Ubah Data (Transaksi Pembelian Barang)<br>
 -   Hapus Data (Transaksi Pembelian Barang)<br>
 -   Detail Data (Transaksi Pembelian Barang)<br>
--   Cari Data (Transaksi Pembelian Barang)<br><br>
+-   Cari Data (Transaksi Pembelian Barang)<br>
 -   Print Data (Transaksi Pembelian)<br>
 -   PDF Data (Transaksi Pembelian)<br>
 -   Print Data Detail (Transaksi Pembelian)<br>
