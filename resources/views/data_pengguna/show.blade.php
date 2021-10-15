@@ -8,15 +8,19 @@ Detail Data Pengguna Apps
 @section('content')
 <div class="h2 mb-3 text-center">Detail Data Pengguna Apps</div>
 <hr style="width:75%">
-
-<div class="h2 mb-3 text-center">Data Profile</div>
-<hr style="width:75%">
-
+<div class="mb-3">
+    <a href="{{ url('pdf-user-detail') }}/{{ $user->id }}"><button type="button" class="btn btn-outline-danger"><i
+                class="fas fa-file-pdf"></i></button></a>
+    <a href="{{ url('print-user-detail')}}/{{ $user->id }}"><button type="button" class="btn btn-outline-warning"><i
+                class="fas fa-print"></i></button></a>
+</div>
 <div class="card mb-4">
     <div class="card-header">
-        Detail Profile yang Sedang Login
+        Detail Data Pengguna Apps
     </div>
+
     <div class="card-body text-center">
+
         <img class="img-profile rounded-circle mb-3"
             src="{{ asset('/img') }}/img_storage/profile/{{ $user->profile->profile_foto }}" width="300px"
             height="300px" alt="User profile picture">
@@ -31,7 +35,7 @@ Detail Data Pengguna Apps
         <h5 class="card-text text-left"><b>Jenis Kelamin</b> : {{ $user->profile->jenis_kelamin }}</h5>
         <h5 class="card-text text-left"><b>Bio</b> : {!! $user->profile->bio !!}</h5>
         <h5 class="card-text text-left"><b>Alamat</b> : {!! $user->profile->alamat !!}</h5>
-        <h5 class="card-text text-left"><b>Alamat</b> : {{ $user->profile->no_telp }}</h5>
+        <h5 class="card-text text-left"><b>Nomor Telepon</b> : {{ $user->profile->no_telp }}</h5>
         <h5 class="card-text text-left"><b>Akun Dibuat</b> : {{ $user->created_at }}</h5>
         <h5 class="card-text text-left"><b>Akun Diupdate</b> : {{ $user->updated_at }}</h5>
         <hr style="width:75%">

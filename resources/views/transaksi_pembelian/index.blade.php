@@ -49,7 +49,6 @@ Data Transaksi Pembelian
                             <a href="/transaksi-pembelian/{{$key->id}}" class="btn btn-outline-info"><i
                                     class="fas fa-eye"></i></a>
                         </td>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>

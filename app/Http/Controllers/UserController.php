@@ -204,6 +204,19 @@ class UserController extends Controller
         return view('data_pengguna.print', compact('user'));
     }
 
+    public function pdf_detail($id)
+    {
+        $user = User::find($id);
+        $pdf = PDF::loadview('data_pengguna.pdf_detail', compact('user'));
+        return $pdf->stream('data_pengguna_detail.pdf');
+    }
+
+    public function print_detail($id)
+    {
+        $user = User::find($id);
+        return view('data_pengguna.print_detail', compact('user'));
+    }
+
     // public function cari(Request $request)
     // {
     //     // menangkap data pencarian

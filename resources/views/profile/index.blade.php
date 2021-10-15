@@ -28,7 +28,7 @@ Data Profile
         <h5 class="card-text text-left"><b>Jenis Kelamin</b> : {{ $profile->jenis_kelamin }}</h5>
         <h5 class="card-text text-left"><b>Bio</b> : {!! $profile->bio !!}</h5>
         <h5 class="card-text text-left"><b>Alamat</b> : {!! $profile->alamat !!}</h5>
-        <h5 class="card-text text-left"><b>Alamat</b> : {!! $profile->no_telp !!}</h5>
+        <h5 class="card-text text-left"><b>Nomor Telepon</b> : {!! $profile->no_telp !!}</h5>
         <h5 class="card-text text-left"><b>Akun Dibuat</b> : {{ $profile->user->created_at }}</h5>
         <h5 class="card-text text-left"><b>Akun Diupdate</b> : {{ $profile->user->updated_at }}</h5>
         <hr style="width:75%">

@@ -129,6 +129,19 @@ class MbarangController extends Controller
         return view('master_barang.print', compact('barang'));
     }
 
+    public function pdf_detail($id)
+    {
+        $barang = Mbarang::find($id);
+        $pdf = PDF::loadview('master_barang.pdf_detail', compact('barang'));
+        return $pdf->stream('master_barang_detail.pdf');
+    }
+
+    public function print_detail($id)
+    {
+        $barang = Mbarang::find($id);
+        return view('master_barang.print_detail', compact('barang'));
+    }
+
     // public function cari(Request $request)
     // {
     //     // menangkap data pencarian
