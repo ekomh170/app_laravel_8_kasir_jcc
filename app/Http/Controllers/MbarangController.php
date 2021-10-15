@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mbarang;
+use App\Exports\MbarangExport;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use PDF;
@@ -142,6 +143,10 @@ class MbarangController extends Controller
         return view('master_barang.print_detail', compact('barang'));
     }
 
+    public function excel()
+    {
+        return \Maatwebsite\Excel\Facades\Excel::download(new MbarangExport, 'master-barang.xlsx');
+    }
     // public function cari(Request $request)
     // {
     //     // menangkap data pencarian

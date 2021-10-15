@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TpembelianbExport;
 use App\Models\Tpembelianbarang;
 use App\Models\Mbarang;
 use App\Models\Tpembelian;
@@ -226,5 +227,10 @@ class TpembelianbarangController extends Controller
     {
         $tpembelianb = TpembelianBarang::find($id);
         return view('transaksi_pembelian_barang.print_detail', compact('tpembelianb'));
+    }
+
+    public function excel()
+    {
+        return \Maatwebsite\Excel\Facades\Excel::download(new TpembelianbExport, 'transaksi-pembelian-barang.xlsx');
     }
 }

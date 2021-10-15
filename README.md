@@ -75,10 +75,11 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Hapus Data (Data Pengguna)<br>
 -   Detail Data (Data Pengguna)<br>
 -   Cari Data (Data Pengguna)<br>
--   Print Data (Transaksi Pembelian)<br>
--   PDF Data (Transaksi Pembelian)<br>
--   Print Data Detail (Transaksi Pembelian)<br>
--   PDF Data Detail (Transaksi Pembelian)<br><br>
+-   Print Data (Data Pengguna)<br>
+-   PDF Data (Data Pengguna)<br>
+-   Print Data Detail (Data Pengguna)<br>
+-   PDF Data Detail (Data Pengguna)<br><br>
+-   Excel Export Data (Data Pengguna)<br><br>
 
     C. Master Barang<br>
 
@@ -87,10 +88,11 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Hapus Data (Master Barang)<br>
 -   Detail Data (Master Barang)<br>
 -   Cari Data (Master Barang)<br>
--   Print Data (Transaksi Pembelian)<br>
--   PDF Data (Transaksi Pembelian)<br>
--   Print Data Detail (Transaksi Pembelian)<br>
--   PDF Data Detail (Transaksi Pembelian)<br><br>
+-   Print Data (Master Barang)<br>
+-   PDF Data (Master Barang)<br>
+-   Print Data Detail (Master Barang)<br>
+-   PDF Data Detail (Master Barang)<br><br>
+-   Excel Export Data (Master Barang)<br><br>
 
     C. Transaksi Pembelian<br>
 
@@ -102,7 +104,8 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Print Data (Transaksi Pembelian)<br>
 -   PDF Data (Transaksi Pembelian)<br>
 -   Print Data Detail (Transaksi Pembelian)<br>
--   PDF Data Detail (Transaksi Pembelian)<br><br>
+-   PDF Data Detail (Transaksi Pembelian)<br>
+-   Excel Export Data (Transaksi Pembelian)<br><br>
 
     C. Transaksi Pembelian Barang<br>
 
@@ -111,10 +114,11 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Hapus Data (Transaksi Pembelian Barang)<br>
 -   Detail Data (Transaksi Pembelian Barang)<br>
 -   Cari Data (Transaksi Pembelian Barang)<br>
--   Print Data (Transaksi Pembelian)<br>
--   PDF Data (Transaksi Pembelian)<br>
--   Print Data Detail (Transaksi Pembelian)<br>
--   PDF Data Detail (Transaksi Pembelian)<br><br>
+-   Print Data (Transaksi Pembelian Barang)<br>
+-   PDF Data (Transaksi Pembelian Barang)<br>
+-   Print Data Detail (Transaksi Pembelian Barang)<br>
+-   PDF Data Detail (Transaksi Pembelian Barang)<br>
+-   Excel Export Data (Transaksi Pembelian Barang)<br><br>
 
 ## Aplikasi Screenshot
 

@@ -9,12 +9,14 @@ Aplikasi Kasir | Project 2 Laravel JCC
 Data Transaksi Pembelian
 @endsection
 @section('content')
-<a href="{{ url('transaksi-pembelian/create') }}"><button type="button" class="btn btn-outline-success"><i
+<a href="{{ url('transaksi-pembelian/create') }}"><button type="button" class="btn btn-outline-primary"><i
             class="fas fa-plus-square"></i></button></a>
 <a href="{{ url('pdf-transaksi-pembelian') }}"><button type="button" class="btn btn-outline-danger"><i
             class="fas fa-file-pdf"></i></button></a>
 <a href="{{ url('print-transaksi-pembelian') }}"><button type="button" class="btn btn-outline-warning"><i
             class="fas fa-print"></i></button></a>
+<a href="{{ url('excel-transaksi-pembelian') }}"><button type="button" class="btn btn-outline-success"><i
+            class="fas fa-file-excel"></i></button></a>
 <div class="h2 mb-3 text-center">Total Akhir Transaksi Pembelian Barang</div>
 
 <hr style="width:75%">

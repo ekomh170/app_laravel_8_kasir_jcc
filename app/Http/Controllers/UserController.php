@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\User;
 use App\Models\Profile;
-use RealRashid\SweetAlert\Facades\Alert;
-use PDF;
+use App\Exports\UserExport;
 
 
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -215,6 +216,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return view('data_pengguna.print_detail', compact('user'));
+    }
+
+    public function excel()
+    {
+        return \Maatwebsite\Excel\Facades\Excel::download(new UserExport, 'user.xlsx');
     }
 
     // public function cari(Request $request)

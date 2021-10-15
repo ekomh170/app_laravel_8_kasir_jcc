@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tpembelian;
-use App\Models\Tpembelianbarang;
-use Illuminate\Http\Request;
 use DB;
 use PDF;
+use App\Models\Tpembelian;
+use Illuminate\Http\Request;
+use App\Models\Tpembelianbarang;
+use App\Exports\TpembelianExport;
 
 class TpembelianController extends Controller
 {
@@ -58,5 +59,10 @@ class TpembelianController extends Controller
     {
         $tpembelian = tpembelian::find($id);
         return view('transaksi_pembelian.print_detail', compact('tpembelian'));
+    }
+
+    public function excel()
+    {
+        return \Maatwebsite\Excel\Facades\Excel::download(new TpembelianExport, 'transaksi-pembelian.xlsx');
     }
 }
