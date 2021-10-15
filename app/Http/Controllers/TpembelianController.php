@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tpembelian;
+use App\Models\Tpembelianbarang;
 use Illuminate\Http\Request;
+use DB;
 use PDF;
 
 class TpembelianController extends Controller
@@ -52,6 +54,12 @@ class TpembelianController extends Controller
     public function show($id)
     {
         $tpembelian = Tpembelian::find($id);
+        // $tpembelian2 = Tpembelianbarang::where($id)->sum('harga_satuan');
+        // $tpembelian2 = \Illuminate\Support\Facades\DB::table('transaksi_pembelian_barang')
+        //     ->join('transaksi_pembelian', 'transaksi_pembelian_barang.transaksi_pembelian_id', '=', 'transaksi_pembelian.id')
+        //     ->where('transaksi_pembelian_barang.transaksi_pembelian_id', '=', $id)
+        //     ->sum('transaksi_pembelian.total_harga');
+
         return view('transaksi_pembelian.show', compact('tpembelian'));
     }
 
@@ -121,12 +129,13 @@ class TpembelianController extends Controller
     public function pdf_detail($id)
     {
         $tpembelian = Tpembelian::find($id);
-        return view('transaksi_pembelian.pdf_detail', compact('tpembelian'));
+        $pdf = PDF::loadview('transaksi_pembelian.pdf_detail', compact('tpembelian'));
+        return $pdf->stream('transaksi_pembelian_detail.pdf');
     }
 
     public function print_detail($id)
     {
-        $Tpembelian = Tpembelian::find($id);
-        return view('transaksi_pembelian.print_detail', compact('Tpembelian'));
+        $tpembelian = tpembelian::find($id);
+        return view('transaksi_pembelian.print_detail', compact('tpembelian'));
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -75,7 +76,7 @@ class ProfileController extends Controller
         }
 
         Profile::whereId($id)->update($profile_data);
-        alert()->success('Berhasil Mengubah Profilemu', 'Profile');
+        Alert::success('Berhasil', 'Mengubah Profile');
         return redirect('profile/');
     }
 }

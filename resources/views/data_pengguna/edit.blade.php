@@ -17,8 +17,8 @@ Edit Data Pengguna Apps
     @method('PUT')
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control" email="email" value="{{$user->email}}" id="email"
-            placeholder="Masukkan email" disabled>
+        <input type="text" class="form-control" name="email" value="{{$user->email}}" id="email"
+            placeholder="Masukkan email">
         @error('email')
         <div class="alert alert-danger">
             {{ $message }}
@@ -28,7 +28,7 @@ Edit Data Pengguna Apps
     <div class="form-group">
         <label for="name">Nama Lengkap</label>
         <input type="text" class="form-control" name="name" value="{{$user->name}}" id="name"
-            placeholder="Masukkan name" disabled>
+            placeholder="Masukkan name">
         @error('name')
         <div class="alert alert-danger">
             {{ $message }}
@@ -38,22 +38,40 @@ Edit Data Pengguna Apps
     <div class="form-group">
         <label for="username">Nama Panggilan</label>
         <input type="text" class="form-control" name="username" value="{{$user->username}}" id="username"
-            placeholder="Masukkan Nama Panggilan" disabled>
-        @error('name')
+            placeholder="Masukkan username">
+        @error('username')
         <div class="alert alert-danger">
             {{ $message }}
         </div>
         @enderror
     </div>
     <div class="form-group">
-        <label for="role">Role</label>
-        <input type="text" class="form-control" name="role" value="{{$user->role}}" id="role"
-            placeholder="Masukkan Role" disabled>
-        @error('role')
+        {{-- <label for="password">Password</label> --}}
+        <input type="password" class="form-control" name="password" value="{{$user->password}}" id="password"
+            placeholder="Masukkan Password" hidden>
+        @error('password')
         <div class="alert alert-danger">
             {{ $message }}
         </div>
         @enderror
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Role</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="role">
+            <option selected>-- Pilih Role --</option>
+            @if ($user->role == "Admin")
+            <option value="{{ $user->role }}" selected>{{ $user->role }}</option>
+            <option value="Kasir">Kasir</option>
+            @else
+            <option value="Admin">Admin</option>
+            <option value="{{ $user->role }}" selected>{{ $user->role }}</option>
+            @endif
+            @error('role')
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
+        </select>
     </div>
     <div class="form-group">
         <label for="umur">Umur</label>
@@ -114,7 +132,8 @@ Edit Data Pengguna Apps
     </div>
     <div class="form-group">
         <label for="bio">Bio</label>
-        <textarea class="form-control" name="bio" id="bio" rows="3" placeholder="Masukkan Bio">{{$user->bio}}</textarea>
+        <textarea class="form-control" name="bio" id="bio" rows="3"
+            placeholder="Masukkan Bio">{{$user->profile->bio}}</textarea>
         @error('bio')
         <div class="alert alert-danger">
             {{ $message }}
@@ -140,6 +159,15 @@ Edit Data Pengguna Apps
         <div class="alert alert-danger">
             {{ $message }}
         </div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="profile_foto" class="text-md-right">{{ __('Profile Foto') }}</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="profile_foto">
+        @error('profile_foto')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
         @enderror
     </div>
     <button type="submit" class="btn btn-primary">Edit</button>

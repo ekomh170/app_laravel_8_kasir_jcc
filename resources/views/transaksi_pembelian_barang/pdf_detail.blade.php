@@ -2,30 +2,72 @@
 <html lang="en">
 
 <head>
-    <title>Kumpulan Data PDF Detail Transaksi Pembelian Barang</title>
+    <title>Detail Data Transaksi Pembelian Barang</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-        .page-break {
-            page-break-after: always;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding in columns */
+        .row {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="h2 mb-3 text-center">Detail Lengkap Data Transaksi Pembelian Barang</div>
-    <hr style="width:75%">
-    <div class="card mb-4">
-        <div class="card-header">
-            Detail Lengkap Data Transaksi Pembelian Barang
-        </div>
+
+    <div class="card">
+        <h2>Aplikasi Kasir</h2>
+        <hr style="width:75%">
         <div class="card-body">
-            <h4 class="card-text"><b>ID Barang</b> : {{ $tpembelianb->id }}</h4>
-            <h4 class="card-text"><b>transaksi_pembelian_id</b> : {{ $tpembelianb->transaksi_pembelian_id }}</h4>
-            <h4 class="card-text"><b>master_barang_id</b> : {{ $tpembelianb->master_barang_id }}</h4>
-            <h4 class="card-text"><b>jumlah</b> : {{ $tpembelianb->jumlah }}</h4>
-            <h4 class="card-text"><b>Harga Satuan</b> : {{ $tpembelianb->harga_satuan }}</h4>
+            <h4>Detail Data Transaksi Pembelian Barang</h4>
+            <div class="card-text"><b>Nomor Daftar Transaksi Pembelian</b> : {{ $tpembelianb->transaksi_pembelian_id }}
+            </div>
+            <div class="card-text"><b>Nama Barang</b> : {{ $tpembelianb->master_barang->nama_barang }}</div>
+            <div class="card-text"><b>Jumlah</b> : {{ $tpembelianb->jumlah }}</div>
+            <div class="card-text"><b>Harga Satuan</b> : {{ $tpembelianb->harga_satuan }}</div>
+            <div class="card-text"><b>Harga Total</b> : {{ $tpembelianb->harga_satuan * $tpembelianb->jumlah }}</div>
+            <div class="card-text"><b>Harga Dibuat</b> : {{ $tpembelianb->created_at }}</div>
+            <div class="card-text"><b>Waktu Diupdate</b> : {{ $tpembelianb->updated_at }}</div>
         </div>
-    </div>
 </body>
 
 </html>

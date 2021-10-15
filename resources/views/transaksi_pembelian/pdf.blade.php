@@ -46,15 +46,13 @@
                 <table width=" 100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Harga Total</th>
+                            <th>Nomor Daftar Transaksi Barang</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($tpembelian as $item => $key)
                         <tr>
                             <td>{{ $item + 1 }}</td>
-                            <td>{{ $key->total_harga }}</td>
                         </tr>
                         @endforeach
                     </tbody>

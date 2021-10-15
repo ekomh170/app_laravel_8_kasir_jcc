@@ -7,6 +7,7 @@ use App\Models\Mbarang;
 use App\Models\Tpembelian;
 use Illuminate\Http\Request;
 use PDF;
+use RealRashid\SweetAlert\Facades\Alert;
 // use \Barryvdh\DomPDF\PDF;
 
 
@@ -46,27 +47,51 @@ class TpembelianbarangController extends Controller
     {
         $request->validate([
             'transaksi_pembelian_id' => 'required',
-            'nama_barang_id' => 'required',
+            'master_barang_id' => 'required',
             'jumlah' => 'required',
             'harga_satuan' => 'required',
         ]);
 
-        // $barang = Mbarang::find($id);
-
-        $TpembelianBarang = TpembelianBarang::create([
+        $data_tampung = [
             "transaksi_pembelian_id" => $request["transaksi_pembelian_id"],
-            "transaksi_pembelian_id" => $request["nama_barang_id"],
+            "master_barang_id" => $request["master_barang_id"],
             "jumlah" => $request["jumlah"],
-            "harga_satuan" => $request["harga_satuan"]
-        ]);
-
+            "harga_satuan" => $request["harga_satuan"],
+        ];
         $total_harga = $request["jumlah"] * $request["harga_satuan"];
-        $Tpembelian = Tpembelian::create([
-            "total_harga" => $total_harga,
-        ]);
 
-        return $TpembelianBarang;
-        return $Tpembelian;
+        if ($data_tampung["transaksi_pembelian_id"] == 0) {
+            $transaksi_pembelian = Tpembelian::create([
+                "total_harga" => $total_harga,
+            ]);
+
+            TpembelianBarang::create([
+                "transaksi_pembelian_id" => $transaksi_pembelian->id,
+                "master_barang_id" => $data_tampung["master_barang_id"],
+                "jumlah" => $data_tampung["jumlah"],
+                "harga_satuan" => $data_tampung["harga_satuan"]
+            ]);
+            Alert::success('Berhasil', 'Menambahkan Data Transaksi Pembelian Barang');
+            return redirect('/transaksi-pembelian-barang');
+        }
+
+        $tpembelian = Tpembelian::find($request["transaksi_pembelian_id"]);
+        $total_harga = $request["jumlah"] * $request["harga_satuan"];
+        $seluruh_total_harga = ($tpembelian['total_harga'] + $total_harga);
+
+
+        $data_tampung_ubah = [
+            "total_harga" => $seluruh_total_harga,
+        ];
+        $tpembelian->update($data_tampung_ubah);
+
+        TpembelianBarang::create([
+            "transaksi_pembelian_id" => $request["transaksi_pembelian_id"],
+            "master_barang_id" => $data_tampung["master_barang_id"],
+            "jumlah" => $data_tampung["jumlah"],
+            "harga_satuan" => $data_tampung["harga_satuan"]
+        ]);
+        Alert::success('Berhasil', 'Menambahkan Data Transaksi Pembelian Barang');
         return redirect('/transaksi-pembelian-barang');
     }
 
@@ -79,6 +104,7 @@ class TpembelianbarangController extends Controller
     public function show($id)
     {
         $tpembelianb = TpembelianBarang::find($id);
+
         return view('transaksi_pembelian_barang.show', compact('tpembelianb'));
     }
 
@@ -93,7 +119,7 @@ class TpembelianbarangController extends Controller
         $tpembelianb = TpembelianBarang::find($id);
         $tpembelian = Tpembelian::all();
         $barang = Mbarang::all();
-        return view('transaksi_pembelian_barang.index', compact('tpembelianb', 'tpembelian', 'barang'));
+        return view('transaksi_pembelian_barang.edit', compact('tpembelianb', 'tpembelian', 'barang'));
     }
 
     /**
@@ -107,22 +133,50 @@ class TpembelianbarangController extends Controller
     {
         $request->validate([
             'transaksi_pembelian_id' => 'required',
-            'nama_barang_id' => 'required',
+            'master_barang_id' => 'required',
             'jumlah' => 'required',
-            'c' => 'required',
+            'harga_satuan' => 'required',
         ]);
 
         $tpembelianb = TpembelianBarang::find($id);
 
-        $tpembelianbarang = [
-            'transaksi_pembelian_id' => $request->transaksi_pembelian_id,
-            'nama_barang_id' => $request->nama_barang_id,
-            'jumlah' => $request->jumlah,
-            'harga_satuan' => $request->harga_satuan,
+        $TpembelianBarang = [
+            "transaksi_pembelian_id" => $request["transaksi_pembelian_id"],
+            "master_barang_id" => $request["master_barang_id"],
+            "jumlah" => $request["jumlah"],
+            "harga_satuan" => $request["harga_satuan"],
         ];
 
-        $tpembelianb->update($tpembelianbarang);
-        return redirect('/transaksi-pembelian-barang');
+        $tpembelianb2 = TpembelianBarang::find($TpembelianBarang['transaksi_pembelian_id']);
+        $tpembelian = Tpembelian::find($TpembelianBarang['transaksi_pembelian_id']);
+
+        $total_harga_baru = $request["jumlah"] * $request["harga_satuan"];
+        $total_harga_lama = $tpembelianb2["jumlah"] * $tpembelianb2["harga_satuan"];
+
+        if ($total_harga_lama < $total_harga_baru) {
+            $total_harga = $total_harga_baru - $total_harga_lama;
+            $seluruh_total_harga = ($tpembelian['total_harga'] + $total_harga);
+            $transaksi_pembelian = [
+                "total_harga" => $seluruh_total_harga,
+            ];
+            $tpembelian->update($transaksi_pembelian);
+            $tpembelianb->update($TpembelianBarang);
+            Alert::success('Berhasil', 'Mengubah Data Transaksi Pembelian Barang');
+            return redirect('/transaksi-pembelian-barang');
+        } elseif ($total_harga_lama > $total_harga_baru) {
+            $total_harga = $total_harga_lama - $total_harga_baru;
+            $seluruh_total_harga = ($tpembelian['total_harga'] - $total_harga);
+            $transaksi_pembelian = [
+                "total_harga" => $seluruh_total_harga,
+            ];
+            $tpembelian->update($transaksi_pembelian);
+            $tpembelianb->update($TpembelianBarang);
+            Alert::success('Berhasil', 'Mengubah Data Transaksi Pembelian Barang');
+            return redirect('/transaksi-pembelian-barang');
+        } elseif ($total_harga_lama == $total_harga_baru) {
+            Alert::success('Berhasil', 'Mengubah Data Transaksi Pembelian Barang');
+            return redirect('/transaksi-pembelian-barang');
+        }
     }
 
     /**
@@ -134,7 +188,17 @@ class TpembelianbarangController extends Controller
     public function destroy($id)
     {
         $tpembelianb = TpembelianBarang::find($id);
+        $tpembelian = Tpembelian::find($tpembelianb->transaksi_pembelian_id);
+
+        $total_harga_lama = $tpembelianb["jumlah"] * $tpembelianb["harga_satuan"];
+        $seluruh_total_harga = ($tpembelian['total_harga'] - $total_harga_lama);
+        $transaksi_pembelian = [
+            "total_harga" => $seluruh_total_harga,
+
+        ];
+        $tpembelian->update($transaksi_pembelian);
         $tpembelianb->delete();
+        Alert::success('Berhasil', 'Menghapus Data Transaksi Pembelian Barang');
         return redirect('/transaksi-pembelian-barang');
     }
 

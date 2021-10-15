@@ -35,7 +35,7 @@
 
 <body>
     <center>
-        <h3>Kumpulan Data Print Transaksi Pembelian</h3>
+        <h3>Detail Data Print Transaksi Pembelian</h3>
         <hr style="width:75%">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -46,15 +46,13 @@
                 <table width=" 100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Harga Total</th>
+                            <th>Nomor Daftar Transaksi Barang</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($tpembelian as $item => $key)
                         <tr>
                             <td>{{ $item + 1 }}</td>
-                            <td>{{ $key->total_harga }}</td>
                         </tr>
                         @endforeach
                     </tbody>

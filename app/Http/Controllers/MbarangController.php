@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mbarang;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MbarangController extends Controller
 {
@@ -46,6 +47,7 @@ class MbarangController extends Controller
             "harga_satuan" => $request["harga_satuan"]
         ]);
 
+        Alert::success('Berhasil', 'Menambahkan Data Barang');
         return redirect('/master-barang');
     }
 
@@ -95,6 +97,7 @@ class MbarangController extends Controller
         ];
 
         $barang->update($data_barang);
+        Alert::success('Berhasil', 'Mengubah Data Barang');
         return redirect('/master-barang');
     }
 
@@ -108,18 +111,19 @@ class MbarangController extends Controller
     {
         $barang = Mbarang::find($id);
         $barang->delete();
+        Alert::success('Berhasil', 'Menghapus Data Barang');
         return redirect('/master-barang');
     }
 
-    public function cari(Request $request)
-    {
-        // menangkap data pencarian
-        $cari = $request->cari;
+    // public function cari(Request $request)
+    // {
+    //     // menangkap data pencarian
+    //     $cari = $request->cari;
 
-        // mengambil data dari table pegawai sesuai pencarian data
-        $barang = Mbarang::where('nama_barang', 'harga_satuan', $cari);
+    //     // mengambil data dari table pegawai sesuai pencarian data
+    //     $barang = Mbarang::where('nama_barang', 'harga_satuan', $cari);
 
-        // mengirim data pegawai ke view index
-        return view('master_barang.index', compact('barang'));
-    }
+    //     // mengirim data pegawai ke view index
+    //     return view('master_barang.index', compact('barang'));
+    // }
 }

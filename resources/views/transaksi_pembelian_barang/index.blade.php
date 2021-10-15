@@ -25,7 +25,7 @@ Daftar Transaksi Pembelian Barang
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table id="example1" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table id="example1" class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -60,10 +60,10 @@ Daftar Transaksi Pembelian Barang
                         <td>{{ $key->master_barang->nama_barang }}</td>
                         <td>{{ $key->jumlah }}</td>
                         <td>{{ $key->harga_satuan }}</td>
-                        <td>{{ $key->transaksi_pembelian->total_harga }}</td>
+                        <td>{{ $key->harga_satuan * $key->jumlah }}</td>
                         <td>{{ $key->created_at }}</td>
                         <td>{{ $key->updated_at }}</td>
-                        <td>
+                        <td class="text-center">
                             <a href="/transaksi-pembelian-barang/{{$key->id}}" class="btn btn-outline-info"><i
                                     class="fas fa-eye"></i></a>
                             @auth

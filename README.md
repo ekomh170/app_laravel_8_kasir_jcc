@@ -12,10 +12,11 @@ Link :
 
 Jabar Coding Camp (JCC), Aplikasi Kasir (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC Partnership - Project Challenge (Tantangan).
 
-## Cara Instalasi :
+## Cara Instalasi ke Server Lokal :
 
 -   Follow Github Saya
 -   Star Repo Github Saya
+-   Fork Repo Github Saya
 -   clone project repo saya dengan cara menuliskan pada terminal/cmd/git bash : git clone https://github.com/ekomh170/app_laravel_8_kasir_jcc.git
 -   lalu masuk ke direktori repo yg sudah di clone dengan ketik lg pada terminal/cmd/git bash <b>cd app_laravel_8_kasir_jcc</b>
 -   lalu ketik composser install dan php artisan key generate (jangan lupa salin dan setting file env)
@@ -66,7 +67,11 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Ubah Data (Data Pengguna)<br>
 -   Hapus Data (Data Pengguna)<br>
 -   Detail Data (Data Pengguna)<br>
--   Cari Data (Data Pengguna)<br><br>
+-   Cari Data (Data Pengguna)<br>
+-   Print Data (Transaksi Pembelian)<br>
+-   PDF Data (Transaksi Pembelian)<br>
+-   Print Data Detail (Transaksi Pembelian)<br>
+-   PDF Data Detail (Transaksi Pembelian)<br><br>
 
     C. Master Barang<br>
 
@@ -99,6 +104,10 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Hapus Data (Transaksi Pembelian Barang)<br>
 -   Detail Data (Transaksi Pembelian Barang)<br>
 -   Cari Data (Transaksi Pembelian Barang)<br><br>
+-   Print Data (Transaksi Pembelian)<br>
+-   PDF Data (Transaksi Pembelian)<br>
+-   Print Data Detail (Transaksi Pembelian)<br>
+-   PDF Data Detail (Transaksi Pembelian)<br><br>
 
 ## Aplikasi Screenshot
 
@@ -133,7 +142,7 @@ C. Komponen
 -   Laravel 8
 -   Bootstrap 4 & 5
 -   Template Tambahan :
-    -   Sb Admin 2 (Bootstrap 4)
+    -   Sb Admin 2 (Bootstrap 4) (Untuk Template Admin Full)
     -   Zinc (Bootstrap 5) (Khusus Halaman Utama)
 -   Library :
     -   Carbon Laravel Time

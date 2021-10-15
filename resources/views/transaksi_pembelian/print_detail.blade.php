@@ -53,26 +53,32 @@
 </head>
 
 <body>
-
     <div class="card">
         <h2>Aplikasi Kasir</h2>
         <hr style="width:75%">
         <div class="card-body">
-            <h4>Detail Data Transaksi Pembelian Barang</h4>
-            <p class="card-text"><b>Nomor Daftar Transaksi Pembelian</b> :
-                {{ $tpembelianb->transaksi_pembelian_id }}
-            </p>
-            <p class="card-text"><b>Nama Barang</b> : {{ $tpembelianb->master_barang->nama_barang }}</p>
-            <p class="card-text"><b>Jumlah</b> : {{ $tpembelianb->jumlah }}</p>
-            <p class="card-text"><b>Harga Satuan</b> : {{ $tpembelianb->harga_satuan }}</p>
-            <p class="card-text"><b>Harga Total</b> : {{ $tpembelianb->harga_satuan * $tpembelianb->jumlah }}</p>
-            <p class="card-text"><b>Harga Dibuat</b> : {{ $tpembelianb->created_at }}</p>
-            <p class="card-text"><b>Waktu Diupdate</b> : {{ $tpembelianb->updated_at }}</p>
-        </div>
-    </div>
-    <script>
-        window.print()
-    </script>
+            <h4>Detail Data Lengkap Total Akhir Transaksi Pembelian Transaksi Pembelian Barang (PDF)</h4>
+            @foreach ($tpembelian->transaksi_pembelian_barang as $item => $key)
+            <h4 class="card-text"><b>Transaksi Pembelian {{ $item + 1  }}</b> : </h4>
+            <ul>
+                <li>
+                    <h4 class="card-text"><b>Nama Barang</b> : {{ $key->master_barang->nama_barang }}</h4>
+                </li>
+                <li>
+                    <h4 class="card-text"><b>Harga Satuan</b> : {{ $key->harga_satuan }}</h4>
+                </li>
+                <li>
+                    <h4 class="card-text"><b>Jumlah Barang</b> : {{ $key->jumlah }}</h4>
+                </li>
+                <li>
+                    <h4 class="card-text"><b>Jumlah Barang</b> : {{ $key->harga_satuan * $key->jumlah}}</h4>
+                </li>
+            </ul>
+            @endforeach
+            <h4>Total Harga : {{ $tpembelian->total_harga }}</h4>
+            <script>
+                window.print()
+            </script>
 </body>
 
 </html>

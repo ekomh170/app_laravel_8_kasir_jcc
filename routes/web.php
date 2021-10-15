@@ -38,12 +38,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/dashboard', DashboardController::class)->only(['index'])->middleware('checkRole:Admin');
     Route::resource('/profile', ProfileController::class)->only(['index', 'update', 'show'])->middleware('checkRole:Admin,Kasir');
 
-
-
     //Cari Fitur
-    Route::get('/user-cari', [UserController::class, 'cari'])->name('user-cari')->middleware('checkRole:Admin');
-    Route::get('/barang-cari', [App\Http\Controllers\MbarangController::class, 'cari'])->middleware('checkRole:Admin');
-    //Cari Fitur
+    // Route::get('/user-cari', [UserController::class, 'cari'])->name('user-cari')->middleware('checkRole:Admin');
+    // Route::get('/barang-cari', [App\Http\Controllers\MbarangController::class, 'cari'])->middleware('checkRole:Admin');
+    // //Cari Fitur
 
     //Transaksi
     Route::resource('/transaksi-pembelian', TpembelianController::class)->middleware('checkRole:Admin,Kasir');
@@ -61,13 +59,13 @@ Route::group(['middleware' => ['web']], function () {
     // DATA Print
 
     // DATA PDF Detail
-    Route::get('/pdf-transaksi-pembelian-detail', [TpembelianController::class, 'pdfdetail'])->name('pdf-transaksi-pembelian-detail')->middleware('checkRole:Admin,Kasir');
-    Route::get('/pdf-transaksi-pembelian-barang-detail', [TpembelianbarangController::class, 'pdfdetail'])->name('pdf-transaksi-pembelian-barang-detail')->middleware('checkRole:Admin,Kasir');
+    Route::get('/pdf-transaksi-pembelian-detail/{id}', [TpembelianController::class, 'pdf_detail'])->name('pdf-transaksi-pembelian-detail')->middleware('checkRole:Admin,Kasir');
+    Route::get('/pdf-transaksi-pembelian-barang-detail/{id}', [TpembelianbarangController::class, 'pdf_detail'])->name('pdf-transaksi-pembelian-barang-detail')->middleware('checkRole:Admin,Kasir');
     // DATA PDF Detail
 
     // DATA Print Detail
-    Route::get('/print-transaksi-pembelian-detail', [TpembelianController::class, 'printdetail'])->name('print-transaksi-pembelian-detail')->middleware('checkRole:Admin,Kasir');
-    Route::get('/print-transaksi-pembelian-barang-detail', [TpembelianbarangController::class, 'printdetail'])->name('print-transaksi-pembelian-barang-detail')->middleware('checkRole:Admin,Kasir');
+    Route::get('/print-transaksi-pembelian-detail/{id}', [TpembelianController::class, 'print_detail'])->name('print-transaksi-pembelian-detail')->middleware('checkRole:Admin,Kasir');
+    Route::get('/print-transaksi-pembelian-barang-detail/{id}', [TpembelianbarangController::class, 'print_detail'])->name('print-transaksi-pembelian-barang-detail')->middleware('checkRole:Admin,Kasir');
     // DATA Print Detail
 
 });

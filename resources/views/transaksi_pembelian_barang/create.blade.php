@@ -14,38 +14,30 @@ Mencatat Data Transaksi Pembelian Barang
 <hr style="width:75%">
 <form action="/transaksi-pembelian-barang" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="dropdown mb-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            ID Transaksi Barang
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Nomer Transaksi Barang</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="transaksi_pembelian_id">
+            <option>-- Pilih Nomer Transaksi --</option>
+            <option value="0">Ingin Membuat Nomer Transaksi Baru</option>
             @foreach ($tpembelian as $item)
-            <a class="dropdown-item" name="{{ $item->id }}">{{ $item->total_harga }}</a>
+            <option value="{{ $item->id }}">
+                {{ $item->id }}</option>
             @endforeach
-        </div>
+        </select>
     </div>
     <div class="form-group">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Data Master Barang
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                @foreach ($barang as $item2)
-                <a class="dropdown-item" name="{{ $item2->id }}">{{ $item2->nama_barang }}</a>
-                @endforeach
-            </div>
-        </div>
-        @error('nama_barang')
-        <div class="alert alert-danger">
-            {{ $message }}
-        </div>
-        @enderror
+        <label for="exampleFormControlSelect1">Nama Barang</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="master_barang_id">
+            <option>-- Pilih Barang --</option>
+            @foreach ($barang as $item)
+            <option value="{{ $item->id }}">{{ $item->nama_barang }}/{{ $item->harga_satuan }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         <label for="jumlah">Jumlah</label>
-        <input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Masukkan Harga Satuan">
+        <input type="number" class="form-control" name="jumlah" id="jumlah"
+            placeholder="Masukkan Jumlah Data Yang Dibeli">
         @error('jumlah')
         <div class="alert alert-danger">
             {{ $message }}

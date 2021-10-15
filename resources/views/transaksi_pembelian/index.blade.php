@@ -25,18 +25,16 @@ Data Transaksi Pembelian
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table id="example1" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table id="example1" class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Total Harga</th>
+                        <th>Nomor Daftar Transaksi Barang</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>No</th>
-                        <th>Total Harga</th>
+                        <th>Nomor Daftar Transaksi Barang</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>
@@ -44,20 +42,9 @@ Data Transaksi Pembelian
                     @foreach ($tpembelian as $item => $key)
                     <tr>
                         <td>{{ $item + 1 }}</td>
-                        <td>{{ $key->total_harga }}</td>
                         <td>
                             <a href="/transaksi-pembelian/{{$key->id}}" class="btn btn-outline-info"><i
                                     class="fas fa-eye"></i></a>
-                            @auth
-                            <a href="/transaksi-pembelian/{{$key->id}}/edit" class="btn btn-outline-primary"><i
-                                    class="far fa-edit"></i></a>
-                            <form action="/transaksi-pembelian/{{$key->id}}" method="POST" class="display-non">
-                                @csrf
-                                @method('DELETE')
-                                <button input type="submit" class="btn btn-outline-danger my-1" value="Delete"><i
-                                        class="far fa-trash-alt"></i></button>
-                            </form>
-                            @endauth
                         </td>
                         </td>
                     </tr>

@@ -12,44 +12,51 @@ Edit Data Transaksi Pembelian Barang
 @section('content')
 <div class="h2 mb-3 text-center">Edit Data Transaksi Pembelian Barang</div>
 <hr style="width:75%">
-<form action="/transaksi-pembelian-barang/{{ $barang->id }}\" method="POST" enctype="multipart/form-data">
+<form action="/transaksi-pembelian-barang/{{ $tpembelianb->id }}" method="POST">
     @csrf
     @method('PUT')
-    <div class="form-group">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Data Barang
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">-- Pilih Data Barang --</a></li>
-            </ul>
-        </div>
-        @error('nama_barang')
-        <div class="alert alert-danger">
-            {{ $message }}
-        </div>
-        @enderror
+    {{-- <div class="form-group">
+        <label for="exampleFormControlSelect1">Nomer Transaksi Barang</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="transaksi_pembelian_id" disabled>
+            <option>-- Pilih Nomer Transaksi --</option>
+            @foreach ($tpembelian as $item)
+            @if ($item->id === $tpembelianb->transaksi_pembelian_id )
+            <option value="{{ $item->id }}" selected>{{ $item->id }}</option>
+    @else
+    <option value="{{ $item->id }}">{{ $item->id }}</option>
+    @endif
+    @endforeach
+    @error('transaksi_pembelian_id')
+    <div class="alert alert-danger">
+        {{ $message }}
     </div>
+    @enderror
+    </select>
+    </div> --}}
     <div class="form-group">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Data Transaksi Pembelian
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">-- Pilih Data Transaksi Pembelian --</a></li>
-            </ul>
-        </div>
-        @error('nama_barang')
-        <div class="alert alert-danger">
-            {{ $message }}
-        </div>
-        @enderror
+        <input type="number" class="form-control" name="transaksi_pembelian_id" id="transaksi_pembelian_id"
+            value="{{ $tpembelianb->id }}" placeholder="Masukkan Transaksi Pembelian ID" hidden>
+        <label for="exampleFormControlSelect1">Nama Barang</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="master_barang_id">
+            <option selected>-- Pilih Menu Barang --</option>
+            @foreach ($barang as $item)
+            @if ($item->id === $tpembelianb->master_barang_id )
+            <option value="{{ $item->id }}" selected>{{ $item->nama_barang }} / {{ $item->harga_satuan }}</option>
+            @else
+            <option value="{{ $item->id }}">{{ $item->nama_barang }} / {{ $item->harga_satuan }}</option>
+            @endif
+            @endforeach
+            @error('master_barang_id')
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
+        </select>
     </div>
     <div class="form-group">
         <label for="jumlah">Jumlah</label>
-        <input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Masukkan Harga Satuan">
+        <input type="number" class="form-control" name="jumlah" id="jumlah" placeholder="Masukkan Harga Satuan"
+            value="{{ $tpembelianb->jumlah }}">
         @error('jumlah')
         <div class="alert alert-danger">
             {{ $message }}
@@ -59,7 +66,7 @@ Edit Data Transaksi Pembelian Barang
     <div class="form-group">
         <label for="harga_satuan">Harga Satuan</label>
         <input type="number" class="form-control" name="harga_satuan" id="harga_satuan"
-            placeholder="Masukkan Harga Satuan">
+            placeholder="Masukkan Harga Satuan" value="{{ $tpembelianb->harga_satuan }}">
         @error('harga_satuan')
         <div class="alert alert-danger">
             {{ $message }}

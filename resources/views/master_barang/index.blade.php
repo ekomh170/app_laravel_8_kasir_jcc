@@ -21,15 +21,8 @@ Data Barang
     </div>
 
     <div class="card-body">
-        <h6>Cari Nama Barang Dan Harga</h6>
-        <form method="get" action="/barang-cari" class="form-inline mb-4">
-            <input class="form-control mr-1" type="search" placeholder="Cari Nama Barang Dan Harga" name="cari"
-                aria-label="search">
-            <button class="btn btn-outline-dark my-1 my-sm-0" type="submit" name="submit" value="submit"><i
-                    class="fa fa-search"></i></button>
-        </form>
         <div class="table-responsive">
-            <table id="example1" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table id="example1" class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>

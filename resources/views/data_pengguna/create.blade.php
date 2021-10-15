@@ -14,10 +14,9 @@ Tambah Data Data Pengguna Apps
 <hr style="width:75%">
 <form action="/user" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('PUT')
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control" email="email" id="email" placeholder="Masukkan email">
+        <input type="text" class="form-control" email="email" id="email" placeholder="Masukkan Email" name="email">
         @error('email')
         <div class="alert alert-danger">
             {{ $message }}
@@ -26,7 +25,7 @@ Tambah Data Data Pengguna Apps
     </div>
     <div class="form-group">
         <label for="name">Nama Lengkap</label>
-        <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan name">
+        <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan Nama">
         @error('name')
         <div class="alert alert-danger">
             {{ $message }}
@@ -46,6 +45,15 @@ Tambah Data Data Pengguna Apps
         <label for="role">Role</label>
         <input type="text" class="form-control" name="role" id="role" placeholder="Masukkan Role">
         @error('role')
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan Password">
+        @error('password')
         <div class="alert alert-danger">
             {{ $message }}
         </div>
@@ -85,7 +93,7 @@ Tambah Data Data Pengguna Apps
     <div class="form-group">
         <label for="tempat_lahir">Tempat Lahir</label>
         <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir"
-            placeholder="Masukkan Harga Satuan">
+            placeholder="Masukkan Tempat Lahir">
         @error('tempat_lahir')
         <div class="alert alert-danger">
             {{ $message }}
@@ -127,6 +135,15 @@ Tambah Data Data Pengguna Apps
         <div class="alert alert-danger">
             {{ $message }}
         </div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="profile_foto" class="text-md-right">{{ __('Profile Foto') }}</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="profile_foto">
+        @error('profile_foto')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
         @enderror
     </div>
     <button type="submit" class="btn btn-primary">Tambah</button>

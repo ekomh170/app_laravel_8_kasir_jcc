@@ -81,10 +81,11 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Transaksi:</h6>
-                <a class="collapse-item" href="{{ url('transaksi-pembelian') }}">Total Akhir <br> Transaksi
-                    Pembelian</a>
                 <a class="collapse-item" href="{{ url('transaksi-pembelian-barang') }}">Daftar Transaksi <br> Pembelian
                     Barang</a>
+                <a class="collapse-item" href="{{ url('transaksi-pembelian') }}">Total Akhir <br> Transaksi
+                    Pembelian</a>
+
             </div>
         </div>
     </li>
