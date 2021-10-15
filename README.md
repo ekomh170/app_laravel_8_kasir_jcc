@@ -78,7 +78,7 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Print Data (Data Pengguna)<br>
 -   PDF Data (Data Pengguna)<br>
 -   Print Data Detail (Data Pengguna)<br>
--   PDF Data Detail (Data Pengguna)<br><br>
+-   PDF Data Detail (Data Pengguna)<br>
 -   Excel Export Data (Data Pengguna)<br><br>
 
     C. Master Barang<br>
@@ -91,7 +91,7 @@ Notes : Jika Sudah Menjalankan db:seed (Seeder Laravel) yang berfungsi untuk mem
 -   Print Data (Master Barang)<br>
 -   PDF Data (Master Barang)<br>
 -   Print Data Detail (Master Barang)<br>
--   PDF Data Detail (Master Barang)<br><br>
+-   PDF Data Detail (Master Barang)<br>
 -   Excel Export Data (Master Barang)<br><br>
 
     C. Transaksi Pembelian<br>
