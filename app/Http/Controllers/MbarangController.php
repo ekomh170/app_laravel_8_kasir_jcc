@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mbarang;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class MbarangController extends Controller
 {
@@ -113,6 +114,19 @@ class MbarangController extends Controller
         $barang->delete();
         Alert::success('Berhasil', 'Menghapus Data Barang');
         return redirect('/master-barang');
+    }
+
+    public function pdf()
+    {
+        $barang = Mbarang::all();
+        $pdf = PDF::loadview('master_barang.pdf', compact('barang'));
+        return $pdf->stream('master_barang.pdf');
+    }
+
+    public function print()
+    {
+        $barang = Mbarang::all();
+        return view('master_barang.print', compact('barang'));
     }
 
     // public function cari(Request $request)

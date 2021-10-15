@@ -11,6 +11,10 @@ Data Barang
 @section('content')
 <a href="{{ url('master-barang/create') }}"><button type="button" class="btn btn-outline-success"><i
             class="fas fa-plus-square"></i></button></a>
+<a href="{{ url('pdf-master-barang') }}"><button type="button" class="btn btn-outline-danger"><i
+            class="fas fa-file-pdf"></i></button></a>
+<a href="{{ url('print-master-barang') }}"><button type="button" class="btn btn-outline-warning"><i
+            class="fas fa-print"></i></button></a>
 <div class="h2 mb-3 text-center">Data Barang</div>
 
 <hr style="width:75%">

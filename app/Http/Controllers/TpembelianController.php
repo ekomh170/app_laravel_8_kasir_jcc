@@ -54,11 +54,6 @@ class TpembelianController extends Controller
     public function show($id)
     {
         $tpembelian = Tpembelian::find($id);
-        // $tpembelian2 = Tpembelianbarang::where($id)->sum('harga_satuan');
-        // $tpembelian2 = \Illuminate\Support\Facades\DB::table('transaksi_pembelian_barang')
-        //     ->join('transaksi_pembelian', 'transaksi_pembelian_barang.transaksi_pembelian_id', '=', 'transaksi_pembelian.id')
-        //     ->where('transaksi_pembelian_barang.transaksi_pembelian_id', '=', $id)
-        //     ->sum('transaksi_pembelian.total_harga');
 
         return view('transaksi_pembelian.show', compact('tpembelian'));
     }

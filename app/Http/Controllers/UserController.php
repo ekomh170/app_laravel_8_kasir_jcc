@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Profile;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
+
 
 use Illuminate\Http\Request;
 
@@ -187,6 +189,19 @@ class UserController extends Controller
         Alert::success('Berhasil', 'Mengubah Data Pengguna');
 
         return redirect('/data-pengguna');
+    }
+
+    public function pdf()
+    {
+        $user = User::all();
+        $pdf = PDF::loadview('data_pengguna.pdf', compact('user'));
+        return $pdf->stream('data_pengguna.pdf');
+    }
+
+    public function print()
+    {
+        $user = User::all();
+        return view('data_pengguna.print', compact('user'));
     }
 
     // public function cari(Request $request)

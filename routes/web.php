@@ -45,11 +45,15 @@ Route::group(['middleware' => ['web']], function () {
     // DATA PDF
     Route::get('/pdf-transaksi-pembelian', [TpembelianController::class, 'pdf'])->name('pdf-transaksi-pembelian')->middleware('checkRole:Admin,Kasir');
     Route::get('/pdf-transaksi-pembelian-barang', [TpembelianbarangController::class, 'pdf'])->name('pdf-transaksi-pembelian-barang')->middleware('checkRole:Admin,Kasir');
+    Route::get('/pdf-master-barang', [MbarangController::class, 'pdf'])->name('pdf-master-barang')->middleware('checkRole:Admin');
+    Route::get('/pdf-user', [UserController::class, 'pdf'])->name('pdf-user')->middleware('checkRole:Admin');
     // DATA PDF
 
     // DATA Print
     Route::get('/print-transaksi-pembelian', [TpembelianController::class, 'print'])->name('print-transaksi-pembelian')->middleware('checkRole:Admin,Kasir');
     Route::get('/print-transaksi-pembelian-barang', [TpembelianbarangController::class, 'print'])->name('print-transaksi-pembelian-barang')->middleware('checkRole:Admin,Kasir');
+    Route::get('/print-master-barang', [MbarangController::class, 'print'])->name('print-master-barang')->middleware('checkRole:Admin,Kasir');
+    Route::get('/print-user', [UserController::class, 'print'])->name('print-user')->middleware('checkRole:Admin,Kasir');
     // DATA Print
 
     // DATA PDF Detail
