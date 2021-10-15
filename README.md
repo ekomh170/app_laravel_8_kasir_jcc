@@ -8,9 +8,16 @@
 
 Deploy Heroku : https://app-kasir-laravel-8-ryo.herokuapp.com/ (Masih Proses Perbaikan)
 
-## Aplikasi Kasir Sederhana V1.0 Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
+## Aplikasi Kasir Sederhana V1.0, Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
 
-Jabar Coding Camp (JCC), Aplikasi Kasir V1.0 (Laravel Project), Anda diminta untuk membuat aplikasi kasir sederhana Kelas JCC Partnership - Project Challenge (Tantangan).
+Jabar Coding Camp (JCC), Aplikasi Kasir V1.0 (Laravel Project), Kelas JCC Partnership - Project Challenge (Tantangan).<br>
+Anda diminta untuk membuat aplikasi kasir sederhana yang mencakup fitur:
+
+1. Mencatat transaksi pembelian barang
+2. Menampilkan daftar transaksi pembelian barang
+3. Authentikasi login pengguna
+4. Pengaturan data pengguna
+5. Pengaturan data master produk
 
 ## Cara Instalasi ke Server Lokal :
 
