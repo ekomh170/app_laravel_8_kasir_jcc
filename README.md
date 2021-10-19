@@ -7,6 +7,10 @@
 # Link Deploy
 
 Deploy Heroku : https://app-kasir-laravel-8-jcc-ryo.herokuapp.com/ (Deploy Link Sudah Bisa)
+Notes
+
+-   Untuk Export File PDF Untuk Deploy Bermasalah.
+-   Tetapi Untuk Export File PDF Local Aman.
 
 ## Aplikasi Kasir Sederhana V1.0, Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
 

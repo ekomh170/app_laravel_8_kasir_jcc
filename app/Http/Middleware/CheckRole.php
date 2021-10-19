@@ -21,7 +21,7 @@ class CheckRole
         //maka silahkan akses
         //jika tidak sesuai akan diarahkan ke home
         if (!Auth::user()) {
-            return redirect('/')->success('Title', 'Session Anda Habis Anda Harus Logout');
+            return redirect('/');
         }
 
         $roles = array_slice(func_get_args(), 2);
@@ -33,6 +33,6 @@ class CheckRole
             }
         }
 
-        return redirect('/profile')->alert()->success('Title', 'Anda Berhasil Login');
+        return redirect('/profile');
     }
 }
