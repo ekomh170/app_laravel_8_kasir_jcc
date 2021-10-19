@@ -130,26 +130,10 @@
                             <span class="far fa-file-alt"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Landing page</h5>
-                            <p>Lorem ipsum dolor sit amet, consect adipiscing elit nulla id nisl blah nor</p>
-                            <ul class="list-unstyled li-space-lg">
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Ut tincidunt vitae enim non vehi</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Phasellus vitae metus in felis</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Fusce pulvinar eu mi ac molestie</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Curabitur consequat nisl eget</div>
-                                </li>
-                            </ul>
+                            <h5 class="card-title">SB Admin 2</h5>
+                            <p style="height: 150px;">Untuk Halaman Admin nya menggunakan sb admin 2 karena aturan dari
+                                tantangan</p>
+
                         </div>
                     </div>
                     <!-- end of card -->
@@ -160,26 +144,11 @@
                             <span class="fas fa-solar-panel"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Corporate site</h5>
-                            <p>Nam eu erat tellused vivamus vitae sem in tortor pharetra vehicula orn</p>
-                            <ul class="list-unstyled li-space-lg">
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Vivaus dignissim sit amet nisi</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Aliqam a tristique nibh in pretium</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Nunc commodo magna quis blah</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Lacus fermentum tincidunt</div>
-                                </li>
-                            </ul>
+                            <h5 class="card-title">Jabar Coding Camp (JCC)</h5>
+                            <p style="height: 150px;">Tantangan JCC Partnership - Project Challenge, Aplikasi Kasir
+                                Sederhana V1.0 (Laravel
+                                Project), Anda
+                                diminta untuk membuat aplikasi kasir sederhana Kelas.</p>
                         </div>
                     </div>
                     <!-- end of card -->
@@ -190,26 +159,10 @@
                             <span class="fas fa-gift"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Online shop</h5>
-                            <p>Nullam lobortis porta diam, vitae dictum metus placerat luctus bora</p>
-                            <ul class="list-unstyled li-space-lg">
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Sed laoreet blandit mollis ne</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Mauris non luctus est quisquerm</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Mattis dapibus quisque tristique</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-check"></i>
-                                    <div class="flex-grow-1">Cursus lacus interdum sollicdn</div>
-                                </li>
-                            </ul>
+                            <h5 class="card-title">ZINC</h5>
+                            <p style="height: 150px;">Adalah Halaman Utama Dari Theme Wagon, ini adalah template yang
+                                digunakan untuk membuat
+                                ui halaman sebelum login dengan modifikasi beberapa fitur yang tidak dipakai.</p>
                         </div>
                     </div>
                     <!-- end of card -->
@@ -227,17 +180,20 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="{{ asset('zinc') }}/images/details-1.svg" alt="alternative">
+                        <img class="img-fluid"
+                            src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg"
+                            alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <h2><span>Perfect solution</span><br> for your small business</h2>
-                        <p>Maecenas fringilla quam posuere, pellentesque est nec, gravida turpis. Integer vitae mollis
-                            felis. Integer id quam id tellus hendrerit laciniad binfer</p>
-                        <p>Sed id dui rutrum, dictum urna eu, accumsan turpis. Fusce id auctor velit, sed viverra dui
-                            rem dina</p>
-                        <a class="btn-solid-reg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modal</a>
+                        <h2><span>Aplikasi Kasir V1.0 Dibuat Menggunakan</span><br> Laravel 8</h2>
+                        <p>Laravel adalah framework PHP yang bersifat open source dan dirancang agar proses pengembangan
+                            aplikasi web menjadi lebih
+                            mudah dan cepat karena berbagai fitur bawaan di dalamnya. Fitur-fitur tersebut merupakan
+                            salah satu alasan mengapa
+                            banyak pengembangan memanfaatkan kerangka kerja Laravel.</p>
+                        <a href="https://laravel.com/docs/8.x" class="btn-solid-reg">Laravel 8 Go!!</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -296,51 +252,12 @@
     </div> <!-- end of modal -->
     <!-- end of details modal -->
 
-
-    <!-- Details 2 -->
-    <div class="counter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-xl-5">
-                    <div class="text-container">
-                        <h2><span>Awesome websites</span><br> built with tons of love</h2>
-                        <p>In gravida vitae nulla vitae tincidunt imperdiet ante. Pellentesque aliquet mi eu tortor
-                            dictum, non imperdiet ante viverra. Phasellus eget enim orci flig rine bilo</p>
-
-                        <!-- Counter -->
-                        <div class="counter-container">
-                            <div class="counter-cell">
-                                <div data-purecounter-start="0" data-purecounter-end="1250"
-                                    data-purecounter-duration="2" class="purecounter">1</div>
-                                <div class="counter-info">Happy Customers</div>
-                            </div> <!-- end of counter-cell -->
-                            <div class="counter-cell red">
-                                <div data-purecounter-start="0" data-purecounter-end="1380"
-                                    data-purecounter-duration="2" class="purecounter">1</div>
-                                <div class="counter-info">Issues Solved</div>
-                            </div> <!-- end of counter-cell -->
-                        </div> <!-- end of counter-container -->
-                        <!-- end of counter -->
-
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6 col-xl-7">
-                    <div class="image-container">
-                        <img class="img-fluid" src="{{ asset('zinc') }}/images/details-2.svg" alt="alternative">
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of counter -->
-    <!-- end of details 2 -->
-
-
     <!-- Projects -->
-    <div id="projects" class="filter bg-white mb-6">
+    <div id="projects" class="filter bg-white mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">Projects that we're proud of</h2>
+                    <h2 class="h2-heading">Projects Me :</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
@@ -356,65 +273,69 @@
                     <div class="grid">
                         <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-1.jpg" alt="alternative">
-                                <p><strong>Online banking</strong> - pellentesque tincidunt leo eu laoreedt integer quis
-                                    vanos compren</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_1_Siadawa.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Sistem Informasi Mahasiswa Dan Penilaian Mahasiswa Siadawa
+                                        (Codeigniter)</strong></p>
                             </a>
                         </div>
                         <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-2.jpg" alt="alternative">
-                                <p><strong>Loans company</strong> - odio semper, interdum orci molestie, mattis lectus
-                                    pellentesq aliqu</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_2_Informasi_Surat.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Informasi Surat Sederhana (PHP Native)</strong></p>
                             </a>
                         </div>
                         <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-3.jpg" alt="alternative">
-                                <p><strong>Refinance firm</strong> - arcu a neque congue finibus doneci malesuada et
-                                    purus melan bris</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_3_Akta_Tanah.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Akta Tanah Sederhana (PHP Native)</strong></p>
                             </a>
                         </div>
-                        <div class="element-item design development">
+                        <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-4.jpg" alt="alternative">
-                                <p><strong>Financial products</strong> - id aliquam ut malesuada eros utr varius blandit
-                                    aliquam tinci bist</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_4_Sidak.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Sidak Sederhana (PHP Native)</strong></p>
                             </a>
                         </div>
-                        <div class="element-item design development">
+                        <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-5.jpg" alt="alternative">
-                                <p><strong>Credit cards</strong> - magna a feugiat cras a semper tellus in rhoncus
-                                    vehicula tellus rugo</p>
+                                <img class="img-fluid"
+                                    src="{{ asset('img') }}/projects/Project_5_Pendataan_Dosen_Mahasiswa.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Pendataan Dosen dan Mahasiswa Sederhana(PHP Native)</strong></p>
                             </a>
                         </div>
-                        <div class="element-item design marketing">
+                        <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-6.jpg" alt="alternative">
-                                <p><strong>Software robots</strong> - vel sodales dolor donec a est sapien integer
-                                    pharetr bilom conva</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_6_PKL.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Pendataan dan Penerima Pelamar Sederhana (PHP Native)</strong></p>
                             </a>
                         </div>
-                        <div class="element-item design marketing">
+                        <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-7.jpg" alt="alternative">
-                                <p><strong>Company control</strong> - ut quam aliquam elemo de vestibulum fringilla
-                                    porttitor vanic tres</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_7_Sosial_Media.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Sosial Media Laravel 6 (Final Project)</strong></p>
                             </a>
                         </div>
-                        <div class="element-item design marketing">
+                        <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-8.jpg" alt="alternative">
-                                <p><strong>Audit reports</strong> - sed tempor, metus vel pharetra finibus, est ante
-                                    hendrerit augue</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_8_Laravel_Film.PNG"
+                                    alt="alternative">
+                                <p><strong>Apps Informasi Film Laravel 6 (Aplikasi Ini Adalah Hasil Pengerjaan Tugas
+                                        Jabar Tantangan Coding Camp)</strong></p>
                             </a>
                         </div>
-                        <div class="element-item design marketing">
+                        <div class="element-item development">
                             <a href="article.html">
-                                <img class="img-fluid" src="{{ asset('zinc') }}/images/project-9.jpg" alt="alternative">
-                                <p><strong>Big business</strong> - aliquam semper molestie nisi, at porttitor lacus
-                                    suscipit in mole richter</p>
+                                <img class="img-fluid" src="{{ asset('img') }}/projects/Project_9_Aplikasi_Kasir.PNG"
+                                    alt="alternative">
+                                <p><strong>Aplikasi Kasir Sederhana V1.0, Project Challenge (Laravel Project) Jabar
+                                        Coding Camp (JCC)</strong></p>
                             </a>
                         </div>
                     </div> <!-- end of grid -->
@@ -426,14 +347,15 @@
     </div> <!-- end of filter -->
     <!-- end of projects -->
 
+    <div class="mt-5 mb-5"></div>
+
     <!-- Footer -->
-    <div class="footer bg-gray mt-6">
+    <div class="footer bg-gray mt-5">
         <img class="decoration-city" src="{{ asset('zinc') }}/images/decoration-city.svg" alt="alternative">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4>Pellentesque aliquet mi eu tortor dictum, non imperdiet ante viverra. Phasellus eget enim orci
-                        ut pellentes troc</h4>
+                    <h4>Web Portofolio : <a href="https://ekomh170.github.io/">https://ekomh170.github.io/</a></h4>
                     <div class="social-container">
                         <span class="fa-stack">
                             <a href="#your-link">
@@ -477,15 +399,9 @@
     <div class="copyright bg-gray mt-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <ul class="list-unstyled li-space-lg p-small">
-                        <li><a href="article.html">Article Details</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div> <!-- end of col -->
+                <!-- end of col -->
                 <div class="col-lg-3">
-                    <p class="p-small statement">Copyright © <a href="#">Your name</a></p>
+                    <p class="p-small statement">Copyright © <a href="#">Eko Muchamad Haryono</a></p>
                 </div> <!-- end of col -->
                 <div class="col-lg-3">
                     <p class="p-small statement">Distributed By: <a href="https://themewagon.com/"
