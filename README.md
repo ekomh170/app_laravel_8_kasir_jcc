@@ -7,10 +7,10 @@
 # Link Deploy
 
 Deploy Heroku : https://app-kasir-laravel-8-jcc-ryo.herokuapp.com/ (Deploy Link Sudah Bisa)
-Notes
 
--   Untuk Export File PDF Untuk Deploy Bermasalah.
--   Tetapi Untuk Export File PDF Local Aman.
+Notes :
+
+-   Bug PDF Selesei Penyebab nya Route PDF Tertimpa Excel Aplikasi 100% Jalan Deploy dan Lokal.
 
 ## Aplikasi Kasir Sederhana V1.0, Kelas JCC Partnership - Project Challenge (Laravel Project) Jabar Coding Camp (JCC)
 
